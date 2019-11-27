@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mgmtno: MyString
+  store: one
+  username: MyString
+  devicetype: MyString
+  purpose: MyString
+  manufacture: MyString
+  modelno: MyString
+  serialno: MyString
+  description: MyString
+  ram: MyString
+  disk: MyString
+  os: MyString
+  hostname: MyString
+  ipaddr: MyString
+  gateway: MyString
+  mac_wire: MyString
+  mac_wireless: MyString
+  date_buy: 2019-11-21
+  date_produce: 2019-11-21
+  amt_buy: 1
+  remarks: MyText
+
+two:
+  mgmtno: MyString
+  store: two
+  username: MyString
+  devicetype: MyString
+  purpose: MyString
+  manufacture: MyString
+  modelno: MyString
+  serialno: MyString
+  description: MyString
+  ram: MyString
+  disk: MyString
+  os: MyString
+  hostname: MyString
+  ipaddr: MyString
+  gateway: MyString
+  mac_wire: MyString
+  mac_wireless: MyString
+  date_buy: 2019-11-21
+  date_produce: 2019-11-21
+  amt_buy: 1
+  remarks: MyText

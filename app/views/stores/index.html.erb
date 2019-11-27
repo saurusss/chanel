@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stores</h1>  
+<div class="well">
+    <%= form_tag "/stores/search", method: "post" do %>
+        Store name :  
+        <input type="text"   name="storename" >
+        <input type="submit" value="Store search"> 
+    <% end  %>
+    </br>
+    <p>Registered Store count : <%= @stores.count %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to 'New Store', new_store_path %> |
+    <%= link_to "Asset list - ALL", assetlists_path %> </p> 
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Group</th>
+      <th>Storecode</th>
+      <th>Store ab</th>
+      <th>Store_code</th>
+      <th>Storename</th>
+      <th>Extension</th>
+      <th>Address</th>
+      <th>Telno</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stores.each do |store| %>
+      <tr>
+        <td><%= store.group %></td>
+        <td><%= store.storecode %></td>
+        <td><%= store.store_ab %></td>
+        <td><%= store.id %></td>
+        <td><%= link_to store.storename, "/assetlists/search/#{store.id}" %> </td>
+        <td><%= store.extension %></td>
+        <td><%= store.address %></td>
+        <td><%= store.telno %></td>
+        <td><%= link_to 'Show', store %></td>
+        <td><%= link_to 'Edit', edit_store_path(store) %></td>
+        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Store', new_store_path %>
