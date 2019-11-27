@@ -1,0 +1,129 @@
+<%= form_with(model: itasset, local: true) do |form| %>
+  <% if itasset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(itasset.errors.count, "error") %> prohibited this itasset from being saved:</h2>
+
+      <ul>
+      <% itasset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+      <tr class="field">
+        <td><%= form.label :mgmtno %></td>
+        <td><%= form.text_field :mgmtno %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :store_id %></td>
+        <td><%= form.text_field :store_id %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :username %></td>
+        <td><%= form.text_field :username %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :placetouse %></td>
+        <td><%= form.text_field :placetouse %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :devicetype %></td>
+        <td><%= form.text_field :devicetype %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :purpose %></td>
+        <td><%= form.text_field :purpose %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :manufacture %></td>
+        <td><%= form.text_field :manufacture %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :modelno %></td>
+        <td><%= form.text_field :modelno %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :serialno %></td>
+        <td><%= form.text_field :serialno %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :cpuspeed %></td>
+        <td><%= form.text_field :cpuspeed %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :ramsize %></td>
+        <td><%= form.text_field :ramsize %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :disksize %></td>
+        <td><%= form.text_field :disksize %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :os %></td>
+        <td><%= form.text_field :os %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :hostname %></td>
+        <td><%= form.text_field :hostname %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :ipaddr %></td>
+        <td><%= form.text_field :ipaddr %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :gwaddr %></td>
+        <td><%= form.text_field :gwaddr %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :macwire %></td>
+        <td><%= form.text_field :macwire %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :macwireless %></td>
+        <td><%= form.text_field :macwireless %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :date_purchase %></td>
+        <td><%= form.date_select :date_purchase %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :date_produce %></td>
+        <td><%= form.date_select :date_produce %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :amtpurchase %></td>
+        <td><%= form.number_field :amtpurchase %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :remarks %></td>
+        <td><%= form.text_area :remarks %></td>
+      </tr>
+
+      <tr class="actions">
+        <td><%= form.submit %></td>
+      </tr>
+  </table>    
+<% end %>

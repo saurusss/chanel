@@ -4,14 +4,14 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.json
   def index
-    @stores = Store.all
+    @stores = Store.all.paginate(page: params[:page], per_page: 10)
   end
 
   def search
     # @selectstore = "%#{params[:storename]}%"
     # @stores = Store.where("storename like ?", @selectstore)
-    @selectstore = params[:storename]
-    @stores = Store.where("storename like ?", "%#{params[:storename]}%")
+    @sel_storename = params[:storename]
+    @stores = Store.where("storename like ?", "%#{params[:storename]}%") 
     #redirect_to stores_path
   end
 

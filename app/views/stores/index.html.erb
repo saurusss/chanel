@@ -11,7 +11,7 @@
     <p>Registered Store count : <%= @stores.count %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <%= link_to 'New Store', new_store_path %> |
-    <%= link_to "Asset list - ALL", assetlists_path %> </p> 
+    <%= link_to "Asset list - ALL", itassets_path %> </p> 
 </div>
 
 
@@ -37,7 +37,7 @@
         <td><%= store.storecode %></td>
         <td><%= store.store_ab %></td>
         <td><%= store.id %></td>
-        <td><%= link_to store.storename, "/assetlists/search/#{store.id}" %> </td>
+        <td><%= link_to store.storename, "/itassets/search/#{store.id}" %> </td>
         <td><%= store.extension %></td>
         <td><%= store.address %></td>
         <td><%= store.telno %></td>
@@ -48,6 +48,9 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @stores, renderer: BootstrapPagination::Rails,  previous_label: "Previous", next_label: "Newer", inner_window: 1, outer_windows: 0 %>
+
 
 <br>
 
