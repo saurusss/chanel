@@ -13,7 +13,7 @@
     <p>Registered Asset count : <%= @itassets.count %>  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <%= link_to 'New Asset', new_itasset_path %> |
+    <%= link_to 'New Itasset-this store', "/itassets/newss/#{@itassets.first.store_id}" %> |
     <%= link_to 'Assetlist - ALL', itassets_path %> |
     <%= link_to "Stores List", stores_path%></p>
     </div>
@@ -22,35 +22,38 @@
     <table class="table" >
     <thead class="well">
         <tr>
-        <th>Mgmtno</th>
-        <th>Storename</th>
-        <th>Username</th>
-        <th>Place_to_use</th>
-        <th>Device type</th>
-        <th>Purpose</th>
-        <th>Manufacture</th>
-        <th>Modelno</th>
-        <th>Serialno</th>
-        <th>Cpu speed</th>
-        <th>Ram size</th>
-        <th>Disk size</th>
-        <th>Os</th>
-        <th>Host name</th>
-        <th>Ipaddr</th>
-        <th>Gwaddr</th>
-        <th>Macwire</th>
-        <th>Macwireless</th>
-        <th>Date purchase</th>
-        <th>Date produce</th>
-        <th>Amtpurchase</th>
-        <th>Remarks</th>
-        <th colspan="3"></th>
+            <th colspan="3"></th>
+            <th>Mgmtno</th>
+            <th>Storename</th>
+            <th>Username</th>
+            <th>Place_to_use</th>
+            <th>Device type</th>
+            <th>Purpose</th>
+            <th>Manufacture</th>
+            <th>Modelno</th>
+            <th>Serialno</th>
+            <th>Cpu speed</th>
+            <th>Ram size</th>
+            <th>Disk size</th>
+            <th>Os</th>
+            <th>Host name</th>
+            <th>Ipaddr</th>
+            <th>Gwaddr</th>
+            <th>Macwire</th>
+            <th>Macwireless</th>
+            <th>Date purchase</th>
+            <th>Date produce</th>
+            <th>Amtpurchase</th>
+            <th>Remarks</th>
         </tr>
     </thead>
 
     <tbody>
         <% @itassets.each do |itasset| %>
         <tr>
+            <td><%= link_to 'Show', itasset %></td>
+            <td><%= link_to 'Edit', edit_itasset_path(itasset) %></td>
+            <td><%= link_to 'Delete', itasset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <td><%= itasset.mgmtno %></td>
             <td><%= itasset.store.storename %></td>
             <td><%= itasset.username %></td>
@@ -73,9 +76,6 @@
             <td><%= itasset.date_produce %></td>
             <td><%= itasset.amtpurchase %></td>
             <td><%= itasset.remarks %></td>
-            <td><%= link_to 'Show', itasset %></td>
-            <td><%= link_to 'Edit', edit_itasset_path(itasset) %></td>
-            <td><%= link_to 'Destroy', itasset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <% end %>
     </tbody>
@@ -85,5 +85,5 @@
 
     <br>
 
-    <%= link_to 'New Itasset - in here', "/itassets/newss/#{@itassets.first.store_id}" %>
+    <%= link_to 'New Itasset - this store', "/itassets/newss/#{@itassets.first.store_id}" %>
 <% end %>

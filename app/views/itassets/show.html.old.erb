@@ -1,0 +1,116 @@
+<p id="notice"><%= notice %></p>
+
+</br>
+<p>
+  <strong>Store:</strong>
+  <%= @itasset.store.storename %>
+</p>
+
+<p>
+  <strong>Mgmtno:</strong>
+  <%= @itasset.mgmtno %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @itasset.username %>
+</p>
+
+<p>
+  <strong>Placetouse:</strong>
+  <%= @itasset.placetouse %>
+</p>
+
+<p>
+  <strong>Devicetype:</strong>
+  <%= @itasset.devicetype %>
+</p>
+
+<p>
+  <strong>Purpose:</strong>
+  <%= @itasset.purpose %>
+</p>
+
+<p>
+  <strong>Manufacture:</strong>
+  <%= @itasset.manufacture %>
+</p>
+
+<p>
+  <strong>Modelno:</strong>
+  <%= @itasset.modelno %>
+</p>
+
+<p>
+  <strong>Serialno:</strong>
+  <%= @itasset.serialno %>
+</p>
+
+<p>
+  <strong>Cpuspeed:</strong>
+  <%= @itasset.cpuspeed %>
+</p>
+
+<p>
+  <strong>Ramsize:</strong>
+  <%= @itasset.ramsize %>
+</p>
+
+<p>
+  <strong>Disksize:</strong>
+  <%= @itasset.disksize %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @itasset.os %>
+</p>
+
+<p>
+  <strong>Hostname:</strong>
+  <%= @itasset.hostname %>
+</p>
+
+<p>
+  <strong>Ipaddr:</strong>
+  <%= @itasset.ipaddr %>
+</p>
+
+<p>
+  <strong>Gwaddr:</strong>
+  <%= @itasset.gwaddr %>
+</p>
+
+<p>
+  <strong>Macwire:</strong>
+  <%= @itasset.macwire %>
+</p>
+
+<p>
+  <strong>Macwireless:</strong>
+  <%= @itasset.macwireless %>
+</p>
+
+<p>
+  <strong>Date purchase:</strong>
+  <%= @itasset.date_purchase %>
+</p>
+
+<p>
+  <strong>Date produce:</strong>
+  <%= @itasset.date_produce %>
+</p>
+
+<p>
+  <strong>Amtpurchase:</strong>
+  <%= @itasset.amtpurchase %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @itasset.remarks %>
+</p>
+</br>
+<%= link_to 'Edit', edit_itasset_path(@itasset) %>  &nbsp;&nbsp;| &nbsp;&nbsp;
+<%= link_to 'Back to All list', itassets_path %>  &nbsp;&nbsp;| &nbsp;&nbsp; 
+<%= link_to 'Back to ' + @itasset.store.storename + ' list', "/itassets/search/#{@itasset.store_id} " %>

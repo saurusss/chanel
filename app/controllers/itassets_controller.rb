@@ -64,10 +64,11 @@ class ItassetsController < ApplicationController
   # DELETE /itassets/1.json
   def destroy
     @itasset.destroy
-    respond_to do |format|
-      format.html { redirect_to itassets_url, notice: 'Itasset was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to itassets_url, notice: 'Itasset was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
+    redirect_to "/itassets/search/#{@itasset.store_id}"
   end
 
   private

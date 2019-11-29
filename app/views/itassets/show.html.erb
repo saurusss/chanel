@@ -1,114 +1,118 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Store:</strong>
-  <%= @itasset.store.storename %>
-</p>
+</br>
+<table>
+  <tr>
+    <td> <strong>Store:</strong> </td>
+    <td> <%= @itasset.store.storename %></td>
+  </tr>
 
-<p>
-  <strong>Mgmtno:</strong>
-  <%= @itasset.mgmtno %>
-</p>
+  <tr>
+    <td><strong>Mgmtno:</strong></td>
+    <td><%= @itasset.mgmtno %></td>
+  </tr>
 
-<p>
-  <strong>Username:</strong>
-  <%= @itasset.username %>
-</p>
+  <tr>
+    <td><strong>Username:</strong></td>
+    <td><%= @itasset.username %></td>
+  </tr>
 
-<p>
-  <strong>Placetouse:</strong>
-  <%= @itasset.placetouse %>
-</p>
+  <tr>
+    <td><strong>Placetouse:</strong></td>
+    <td><%= @itasset.placetouse %></td>
+  </tr>
 
-<p>
-  <strong>Devicetype:</strong>
-  <%= @itasset.devicetype %>
-</p>
+  <tr>
+    <td><strong>Devicetype:</strong></td>
+    <td><%= @itasset.devicetype %></td>
+  </tr>
 
-<p>
-  <strong>Purpose:</strong>
-  <%= @itasset.purpose %>
-</p>
+  <tr>
+    <td><strong>Purpose:</strong></td>
+    <td><%= @itasset.purpose %></td>
+  </tr>
 
-<p>
-  <strong>Manufacture:</strong>
-  <%= @itasset.manufacture %>
-</p>
+  <tr>
+    <td><strong>Manufacture:</strong></td>
+    <td><%= @itasset.manufacture %></td>
+  </tr>
 
-<p>
-  <strong>Modelno:</strong>
-  <%= @itasset.modelno %>
-</p>
+  <tr>
+    <td><strong>Modelno:</strong></td>
+    <td><%= @itasset.modelno %></td>
+  </tr>
 
-<p>
-  <strong>Serialno:</strong>
-  <%= @itasset.serialno %>
-</p>
+  <tr>
+    <td><strong>Serialno:</strong></td>
+    <td><%= @itasset.serialno %></td>
+  </tr>
 
-<p>
-  <strong>Cpuspeed:</strong>
-  <%= @itasset.cpuspeed %>
-</p>
+  <tr>
+    <td><strong>Cpuspeed:</strong></td>
+    <td><%= @itasset.cpuspeed %></td>
+  </tr>
 
-<p>
-  <strong>Ramsize:</strong>
-  <%= @itasset.ramsize %>
-</p>
+  <tr>
+    <td><strong>Ramsize:</strong></td>
+    <td><%= @itasset.ramsize %></td>
+  </tr>
 
-<p>
-  <strong>Disksize:</strong>
-  <%= @itasset.disksize %>
-</p>
+  <tr>
+    <td><strong>Disksize:</strong></td>
+    <td><%= @itasset.disksize %></td>
+  </tr>
 
-<p>
-  <strong>Os:</strong>
-  <%= @itasset.os %>
-</p>
+  <tr>
+    <td><strong>Os:</strong></td>
+    <td><%= @itasset.os %></td>
+  </tr>
 
-<p>
-  <strong>Hostname:</strong>
-  <%= @itasset.hostname %>
-</p>
+  <tr>
+    <td><strong>Hostname:</strong></td>
+    <td><%= @itasset.hostname %></td>
+  </tr>
 
-<p>
-  <strong>Ipaddr:</strong>
-  <%= @itasset.ipaddr %>
-</p>
+  <tr>
+    <td><strong>Ipaddr:</strong></td>
+    <td><%= @itasset.ipaddr %></td>
+  </tr>
 
-<p>
-  <strong>Gwaddr:</strong>
-  <%= @itasset.gwaddr %>
-</p>
+  <tr>
+    <td><strong>Gwaddr:</strong></td>
+    <td><%= @itasset.gwaddr %></td>
+  </tr>
 
-<p>
-  <strong>Macwire:</strong>
-  <%= @itasset.macwire %>
-</p>
+  <tr>
+    <td><strong>Macwire:</strong></td>
+    <td><%= @itasset.macwire %></td>
+  </tr>
 
-<p>
-  <strong>Macwireless:</strong>
-  <%= @itasset.macwireless %>
-</p>
+  <tr>
+    <td><strong>Macwireless:</strong></td>
+    <td><%= @itasset.macwireless %></td>
+  </tr>
 
-<p>
-  <strong>Date purchase:</strong>
-  <%= @itasset.date_purchase %>
-</p>
+  <tr>
+    <td><strong>Date purchase:</strong></td>
+    <td><%= @itasset.date_purchase %></td>
+  </tr>
 
-<p>
-  <strong>Date produce:</strong>
-  <%= @itasset.date_produce %>
-</p>
+  <tr>
+    <td><strong>Date produce:</strong></td>
+    <td><%= @itasset.date_produce %></td>
+  </tr>
 
-<p>
-  <strong>Amtpurchase:</strong>
-  <%= @itasset.amtpurchase %>
-</p>
+  <tr>
+    <td><strong>Amtpurchase:</strong></td>
+    <td><%= @itasset.amtpurchase %></td>
+  <tr>
 
-<p>
-  <strong>Remarks:</strong>
-  <%= @itasset.remarks %>
-</p>
-
-<%= link_to 'Edit', edit_itasset_path(@itasset) %> |
-<%= link_to 'Back', itassets_path %>
+  <tr>
+    <td><strong>Remarks:</strong></td>
+    <td><%= @itasset.remarks %></td>
+  </tr>
+</table>
+</br>
+<%= link_to 'Edit', edit_itasset_path(@itasset) %>  &nbsp;&nbsp;| &nbsp;&nbsp;
+<%= link_to 'Back to All list', itassets_path %>  &nbsp;&nbsp;| &nbsp;&nbsp; 
+<%= link_to 'Back to ' + @itasset.store.storename + ' list', "/itassets/search/#{@itasset.store_id} " %>
