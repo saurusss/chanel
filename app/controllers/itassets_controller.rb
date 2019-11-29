@@ -21,6 +21,11 @@ class ItassetsController < ApplicationController
     @itasset = Itasset.new
   end
 
+  def newss
+    @itasset = Itasset.new
+    @itasset.store_id = params[:store_id]
+  end 
+   
   # GET /itassets/1/edit
   def edit
   end

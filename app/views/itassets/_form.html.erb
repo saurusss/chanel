@@ -12,15 +12,26 @@
   <% end %>
 
   <table>
+
+      <% if @itasset.store_id == nil %>
+          <tr class="field">
+            <td><%= form.label :store_id %></td>
+            <td><%= form.text_field :store_id %></td>
+          </tr>
+      <% else %> 
+          <tr class="field">
+            <td><%= form.label :store_id %></td>
+            <td><%= itasset.store.storename %></td>
+            <%= form.hidden_field :store_id %>
+
+          </tr>
+      <% end %> 
+
       <tr class="field">
         <td><%= form.label :mgmtno %></td>
         <td><%= form.text_field :mgmtno %></td>
       </tr>
 
-      <tr class="field">
-        <td><%= form.label :store_id %></td>
-        <td><%= form.text_field :store_id %></td>
-      </tr>
 
       <tr class="field">
         <td><%= form.label :username %></td>
