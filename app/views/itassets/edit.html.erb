@@ -2,7 +2,7 @@
 
 <%= render 'form', itasset: @itasset %>
 
-<%= link_to 'Show', @itasset %> ;&nbsp;;&nbsp;| &nbsp;&nbsp;&nbsp;
+<%= link_to 'Show', @itasset %> &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
 <%= link_to 'Back to All list', itassets_path %>  &nbsp;&nbsp;| &nbsp;&nbsp; 
 <%= link_to 'Back to ' + @itasset.store.storename + ' list', "/itassets/search/#{@itasset.store_id} " %>
 
