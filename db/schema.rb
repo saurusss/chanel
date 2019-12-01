@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_070038) do
+ActiveRecord::Schema.define(version: 2019_12_01_114428) do
 
   create_table "assetlists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mgmtno"
@@ -77,6 +77,20 @@ ActiveRecord::Schema.define(version: 2019_12_01_070038) do
 
   create_table "dtypes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "dtype"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "examples", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "c1"
+    t.string "c2"
+    t.string "c3"
+    t.string "c4"
+    t.string "c5"
+    t.string "c6"
+    t.string "c7"
+    t.string "c8"
+    t.string "c9"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

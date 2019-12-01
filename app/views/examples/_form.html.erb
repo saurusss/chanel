@@ -1,0 +1,62 @@
+<%= form_with(model: example, local: true) do |form| %>
+  <% if example.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(example.errors.count, "error") %> prohibited this example from being saved:</h2>
+
+      <ul>
+      <% example.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :c1 %>
+    <%= form.text_field :c1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c2 %>
+    <%= form.check_box  :c2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c3 %>
+    <%= form.text_area :c3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c4 %>
+    <%= form.text_field :c4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c5 %>
+    <%= form.text_field :c5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c6 %>
+    <%= form.text_field :c6 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c7 %>
+    <%= form.text_field :c7 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c8 %>
+    <%= form.text_field :c8 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :c9 %>
+    <%= form.text_field :c9 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
