@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_053917) do
+ActiveRecord::Schema.define(version: 2019_12_01_070038) do
 
   create_table "assetlists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mgmtno"
@@ -75,6 +75,12 @@ ActiveRecord::Schema.define(version: 2019_11_27_053917) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "dtypes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "dtype"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "itassets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mgmtno"
     t.bigint "store_id"
@@ -100,6 +106,8 @@ ActiveRecord::Schema.define(version: 2019_11_27_053917) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "dtype_id"
+    t.index ["dtype_id"], name: "index_itassets_on_dtype_id"
     t.index ["store_id"], name: "index_itassets_on_store_id"
   end
 
@@ -140,6 +148,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_053917) do
   add_foreign_key "assetlists", "stores"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "itassets", "dtypes"
   add_foreign_key "itassets", "stores"
   add_foreign_key "posts", "users"
 end

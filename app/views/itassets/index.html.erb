@@ -20,6 +20,7 @@
       <th><%= link_to "Store_name",   "/itassets/index/store_id" %> </th>
       <th><%= link_to "Username",     "/itassets/index/username" %></th>
       <th><%= link_to "Place to use", "/itassets/index/placetouse" %> </th>
+      <th><%= link_to "Dtype",        "/itassets/index/dtype_id" %> </th>
       <th><%= link_to "Device type",  "/itassets/index/devicetype" %> </th>
       <th>Purpose</th>
       <th><%= link_to "Manufacture",  "/itassets/index/manufacture" %></th>
@@ -51,6 +52,7 @@
         <td><%= link_to itasset.store.storename, "/itassets/search/#{itasset.store_id}" %></td>
         <td><%= itasset.username %></td>
         <td><%= itasset.placetouse %></td>
+        <td><%= itasset.dtype.dtype %></td>
         <td><%= itasset.devicetype %></td>
         <td><%= itasset.purpose %></td>
         <td><%= itasset.manufacture %></td>

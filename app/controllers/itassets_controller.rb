@@ -28,15 +28,20 @@ class ItassetsController < ApplicationController
   # GET /itassets/new
   def new
     @itasset = Itasset.new
+    @itasset.dtype_id = 99
+    @dtypes = Dtype.all 
   end
 
   def newss
     @itasset = Itasset.new
     @itasset.store_id = params[:store_id]
+    @itasset.dtype_id = 99
+    @dtypes = Dtype.all
   end 
    
   # GET /itassets/1/edit
   def edit
+    @dtypes = Dtype.all
   end
 
   # POST /itassets
@@ -88,6 +93,6 @@ class ItassetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def itasset_params
-      params.require(:itasset).permit(:mgmtno, :store_id, :username, :placetouse, :devicetype, :purpose, :manufacture, :modelno, :serialno, :cpuspeed, :ramsize, :disksize, :os, :hostname, :ipaddr, :gwaddr, :macwire, :macwireless, :date_purchase, :date_produce, :amtpurchase, :remarks, )
+      params.require(:itasset).permit(:mgmtno, :store_id, :username, :placetouse, :devicetype, :purpose, :manufacture, :modelno, :serialno, :cpuspeed, :ramsize, :disksize, :os, :hostname, :ipaddr, :gwaddr, :macwire, :macwireless, :date_purchase, :date_produce, :amtpurchase, :remarks, :dtype_id, )
     end
 end

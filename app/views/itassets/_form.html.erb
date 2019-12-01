@@ -44,6 +44,15 @@
       </tr>
 
       <tr class="field">
+        <td><%= form.label :dtype_id %></td>
+        <td><%= form.text_field :dtype_id %></td>
+        <td><%= itasset.dtype.dtype %></td>
+        <td><%  @dtypes.each do |d| %>
+            <%= d.dtype %>-<%= d.id %>: 
+            <% end %> </td>
+      </tr>
+
+      <tr class="field">
         <td><%= form.label :devicetype %></td>
         <td><%= form.text_field :devicetype %></td>
       </tr>
