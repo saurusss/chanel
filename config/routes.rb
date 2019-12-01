@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post '/stores/search'=> 'stores#search'
   get  '/itassets/search/:store_id' => 'itassets#search'
   get  '/itassets/newss/:store_id' => 'itassets#newss'
+  get  '/itassets/index/:orderkey'  => 'itassets#index'
+  get  '/itassets/search/:store_id/:orderkey' => 'itassets#search'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

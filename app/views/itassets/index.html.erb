@@ -5,9 +5,10 @@
 <div class="well">
   <p>Registered Asset count : <%= @itassets.count %>  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  order by : <%= @orderkey %>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <%= link_to 'New Assetlist', new_itasset_path %> |
-  <%= link_to "Stores", stores_path%></p>
+  <%= link_to 'New Asset', new_itasset_path, class: 'btn btn-default' %> |
+  <%= link_to "Stores", stores_path, class: 'btn btn-default' %></p>
 </div>
 
 
@@ -15,19 +16,19 @@
   <thead class="well">
     <tr>
       <th colspan="3"></th>
-      <th>Mgmtno</th>
-      <th width ="30" >Store_name</th>
-      <th>Username</th>
-      <th>Place to use</th>
-      <th>Device type</th>
+      <th><%= link_to "Mgmtno",       "/itassets/index/mgmtno" %></th>
+      <th><%= link_to "Store_name",   "/itassets/index/store_id" %> </th>
+      <th><%= link_to "Username",     "/itassets/index/username" %></th>
+      <th><%= link_to "Place to use", "/itassets/index/placetouse" %> </th>
+      <th><%= link_to "Device type",  "/itassets/index/devicetype" %> </th>
       <th>Purpose</th>
-      <th>Manufacture</th>
-      <th>Modelno</th>
+      <th><%= link_to "Manufacture",  "/itassets/index/manufacture" %></th>
+      <th><%= link_to "Modelno",      "/itassets/index/modelno" %></th>
       <th>Serialno</th>
       <th>Cpu speed</th>
       <th>Ram size</th>
       <th>Disk size</th>
-      <th>Os</th>
+      <th><%= link_to "Os",           "/itassets/index/os" %></th>
       <th>Host name</th>
       <th>Ipaddr</th>
       <th>Gwaddr</th>
@@ -75,4 +76,4 @@
 
 <%= will_paginate @itassets, renderer: BootstrapPagination::Rails,  previous_label: "Previous", next_label: "Newer", inner_window: 1, outer_windows: 0 %>
 <br>
-<%= link_to 'New Itasset', new_itasset_path %>
+<%= link_to 'New Itasset', new_itasset_path, class: 'btn btn-default' %>

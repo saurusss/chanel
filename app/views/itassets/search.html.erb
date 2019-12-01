@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Assets - Store selected</h1>
+<h1>Assets - <%=@sel_storename %> </h1>
 
 <% if @itassets.count == 0 %>
     <% message = "There is no asset registered in the selected store
@@ -12,10 +12,11 @@
     <div class="well">
     <p>Registered Asset count : <%= @itassets.count %>  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    order by : <%= @orderkey %>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <%= link_to 'New Itasset-this store', "/itassets/newss/#{@itassets.first.store_id}" %> |
-    <%= link_to 'Assetlist - ALL', itassets_path %> |
-    <%= link_to "Stores List", stores_path%></p>
+    <%= link_to 'New Itasset-this store', "/itassets/newss/#{@itassets.first.store_id}", class: 'btn btn-default' %> |
+    <%= link_to 'Assetlist - ALL', itassets_path, class: 'btn btn-default' %> |
+    <%= link_to "Stores List", stores_path, class: 'btn btn-default' %></p>
     </div>
 
 
@@ -23,19 +24,19 @@
     <thead class="well">
         <tr>
             <th colspan="3"></th>
-            <th>Mgmtno</th>
+            <th><%= link_to "Mgmtno",       "/itassets/search/#{@itassets.first.store_id}/mgmtno" %></th>
             <th>Storename</th>
-            <th>Username</th>
-            <th>Place_to_use</th>
-            <th>Device type</th>
+            <th><%= link_to "Username",     "/itassets/search/#{@itassets.first.store_id}/username" %></th>
+            <th><%= link_to "Place_to_use", "/itassets/search/#{@itassets.first.store_id}/placetouse" %></th>
+            <th><%= link_to "Device type",  "/itassets/search/#{@itassets.first.store_id}/devicetype" %></th>
             <th>Purpose</th>
-            <th>Manufacture</th>
-            <th>Modelno</th>
+            <th><%= link_to "Manufacture",  "/itassets/search/#{@itassets.first.store_id}/manufacture" %></th>
+            <th><%= link_to "Modelno",      "/itassets/search/#{@itassets.first.store_id}/modelno" %></th>
             <th>Serialno</th>
             <th>Cpu speed</th>
             <th>Ram size</th>
             <th>Disk size</th>
-            <th>Os</th>
+            <th><%= link_to "Os",           "/itassets/search/#{@itassets.first.store_id}/os" %></th>
             <th>Host name</th>
             <th>Ipaddr</th>
             <th>Gwaddr</th>
@@ -74,7 +75,7 @@
             <td><%= itasset.macwireless %></td>
             <td><%= itasset.date_purchase %></td>
             <td><%= itasset.date_produce %></td>
-            <td><%= itasset.amtpurchase %></td>
+            <td><%= itasset.amtpurchase %> </td>           
             <td><%= itasset.remarks %></td>
         </tr>
         <% end %>
@@ -85,5 +86,5 @@
 
     <br>
 
-    <%= link_to 'New Itasset - this store', "/itassets/newss/#{@itassets.first.store_id}" %>
+    <%= link_to 'New Itasset - this store', "/itassets/newss/#{@itassets.first.store_id}", class: 'btn btn-default'  %>
 <% end %>

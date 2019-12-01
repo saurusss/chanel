@@ -4,12 +4,21 @@ class ItassetsController < ApplicationController
   # GET /itassets
   # GET /itassets.json
   def index
-    #@itassets = Itasset.all
-    @itassets = Itasset.all.paginate(page: params[:page], per_page: 10)
+    @orderkey = params[:orderkey]
+    if @orderkey == nil
+      @orderkey = "store_id"
+    end
+      #@itassets = Itasset.all
+      @itassets = Itasset.all.order(@orderkey).paginate(page: params[:page], per_page: 10)
   end
+
   def search
+    @orderkey = params[:orderkey]
+    if @orderkey == nil
+      @orderkey = "mgmtno"
+    end
     @sel_storename = Store.where(id: params[:store_id]).first.storename
-    @itassets = Itasset.where(store_id: params[:store_id]).paginate(page: params[:page], per_page: 10)
+    @itassets = Itasset.where(store_id: params[:store_id]).order(@orderkey).paginate(page: params[:page], per_page: 10)
   end
   # GET /itassets/1
   # GET /itassets/1.json
@@ -79,6 +88,6 @@ class ItassetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def itasset_params
-      params.require(:itasset).permit(:mgmtno, :store_id, :username, :placetouse, :devicetype, :purpose, :manufacture, :modelno, :serialno, :cpuspeed, :ramsize, :disksize, :os, :hostname, :ipaddr, :gwaddr, :macwire, :macwireless, :date_purchase, :date_produce, :amtpurchase, :remarks)
+      params.require(:itasset).permit(:mgmtno, :store_id, :username, :placetouse, :devicetype, :purpose, :manufacture, :modelno, :serialno, :cpuspeed, :ramsize, :disksize, :os, :hostname, :ipaddr, :gwaddr, :macwire, :macwireless, :date_purchase, :date_produce, :amtpurchase, :remarks, )
     end
 end

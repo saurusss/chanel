@@ -1,0 +1,93 @@
+                   Prefix Verb   URI Pattern                                                                              Controller#Action
+                 itassets GET    /itassets(.:format)                                                                      itassets#index
+                          POST   /itassets(.:format)                                                                      itassets#create
+              new_itasset GET    /itassets/new(.:format)                                                                  itassets#new
+             edit_itasset GET    /itassets/:id/edit(.:format)                                                             itassets#edit
+                  itasset GET    /itassets/:id(.:format)                                                                  itassets#show
+                          PATCH  /itassets/:id(.:format)                                                                  itassets#update
+                          PUT    /itassets/:id(.:format)                                                                  itassets#update
+                          DELETE /itassets/:id(.:format)                                                                  itassets#destroy
+                   stores GET    /stores(.:format)                                                                        stores#index
+                          POST   /stores(.:format)                                                                        stores#create
+                new_store GET    /stores/new(.:format)                                                                    stores#new
+               edit_store GET    /stores/:id/edit(.:format)                                                               stores#edit
+                    store GET    /stores/:id(.:format)                                                                    stores#show
+                          PATCH  /stores/:id(.:format)                                                                    stores#update
+                          PUT    /stores/:id(.:format)                                                                    stores#update
+                          DELETE /stores/:id(.:format)                                                                    stores#destroy
+          searches_result GET    /searches/result(.:format)                                                               searches#result
+         new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
+             user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
+     destroy_user_session GET    /users/sign_out(.:format)                                                                devise/sessions#destroy
+        new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
+       edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
+            user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
+                          PUT    /users/password(.:format)                                                                devise/passwords#update
+                          POST   /users/password(.:format)                                                                devise/passwords#create
+ cancel_user_registration GET    /users/cancel(.:format)                                                                  devise/registrations#cancel
+    new_user_registration GET    /users/sign_up(.:format)                                                                 devise/registrations#new
+   edit_user_registration GET    /users/edit(.:format)                                                                    devise/registrations#edit
+        user_registration PATCH  /users(.:format)                                                                         devise/registrations#update
+                          PUT    /users(.:format)                                                                         devise/registrations#update
+                          DELETE /users(.:format)                                                                         devise/registrations#destroy
+                          POST   /users(.:format)                                                                         devise/registrations#create
+                  dslists GET    /dslists(.:format)                                                                       dslists#index
+                          POST   /dslists(.:format)                                                                       dslists#create
+               new_dslist GET    /dslists/new(.:format)                                                                   dslists#new
+              edit_dslist GET    /dslists/:id/edit(.:format)                                                              dslists#edit
+                   dslist GET    /dslists/:id(.:format)                                                                   dslists#show
+                          PATCH  /dslists/:id(.:format)                                                                   dslists#update
+                          PUT    /dslists/:id(.:format)                                                                   dslists#update
+                          DELETE /dslists/:id(.:format)                                                                   dslists#destroy
+                 contacts GET    /contacts(.:format)                                                                      contacts#index
+                          POST   /contacts(.:format)                                                                      contacts#create
+              new_contact GET    /contacts/new(.:format)                                                                  contacts#new
+             edit_contact GET    /contacts/:id/edit(.:format)                                                             contacts#edit
+                  contact GET    /contacts/:id(.:format)                                                                  contacts#show
+                          PATCH  /contacts/:id(.:format)                                                                  contacts#update
+                          PUT    /contacts/:id(.:format)                                                                  contacts#update
+                          DELETE /contacts/:id(.:format)                                                                  contacts#destroy
+                    posts GET    /posts(.:format)                                                                         posts#index
+                          POST   /posts(.:format)                                                                         posts#create
+                 new_post GET    /posts/new(.:format)                                                                     posts#new
+                edit_post GET    /posts/:id/edit(.:format)                                                                posts#edit
+                     post GET    /posts/:id(.:format)                                                                     posts#show
+                          PATCH  /posts/:id(.:format)                                                                     posts#update
+                          PUT    /posts/:id(.:format)                                                                     posts#update
+                          DELETE /posts/:id(.:format)                                                                     posts#destroy
+                          GET    /                                                                                        home#index
+                    about GET    /about(.:format)                                                                         home#about
+                          POST   /posts/:post_id(.:format)                                                                comments#create
+                          DELETE /posts/:post_id/comments/:id(.:format)                                                   comments#destroy
+                          POST   /posts/:post_id/comments/:id(.:format)                                                   comments#update
+            stores_search POST   /stores/search(.:format)                                                                 stores#search
+                          GET    /itassets/search/:store_id(.:format)                                                     itassets#search
+                          GET    /itassets/newss/:store_id(.:format)                                                      itassets#newss
+                 rails_db        /rails/db                                                                                RailsDb::Engine
+       rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
+rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
+       rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
+update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
+     rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
+
+Routes for RailsDb::Engine:
+            root GET  /                                    rails_db/dashboard#index
+      table_data GET  /tables/:table_id/data(.:format)     rails_db/tables#data
+       table_csv GET  /tables/:table_id/csv(.:format)      rails_db/tables#csv
+  table_truncate GET  /tables/:table_id/truncate(.:format) rails_db/tables#truncate
+   table_destroy GET  /tables/:table_id/destroy(.:format)  rails_db/tables#destroy
+      table_edit GET  /tables/:table_id/edit(.:format)     rails_db/tables#edit
+    table_update PUT  /tables/:table_id/update(.:format)   rails_db/tables#update
+      table_xlsx GET  /tables/:table_id/xlsx(.:format)     rails_db/tables#xlsx
+       table_new GET  /tables/:table_id/new(.:format)      rails_db/tables#new
+    table_create POST /tables/:table_id/create(.:format)   rails_db/tables#create
+          tables GET  /tables(.:format)                    rails_db/tables#index
+           table GET  /tables/:id(.:format)                rails_db/tables#show
+             sql GET  /sql(.:format)                       rails_db/sql#index
+      sql_import GET  /import(.:format)                    rails_db/sql#import
+     sql_execute POST /execute(.:format)                   rails_db/sql#execute
+         sql_csv POST /sql-csv(.:format)                   rails_db/sql#csv
+         sql_xls POST /sql-xls(.:format)                   rails_db/sql#xls
+sql_start_import POST /import-start(.:format)              rails_db/sql#import_start
+      data_table GET  /data-table(.:format)                rails_db/dashboard#data_table
+      standalone GET  /standalone(.:format)                rails_db/dashboard#standalone
