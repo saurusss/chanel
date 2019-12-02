@@ -5,20 +5,24 @@ class ExamplesController < ApplicationController
   # GET /examples.json
   def index
     @examples = Example.all
+    @dtypes = Dtype.all
   end
 
   # GET /examples/1
   # GET /examples/1.json
   def show
+    @dtypes = Dtype.all
   end
 
   # GET /examples/new
   def new
     @example = Example.new
+    @dtypes = Dtype.all
   end
 
   # GET /examples/1/edit
   def edit
+    @dtypes = Dtype.all
   end
 
   # POST /examples

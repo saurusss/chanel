@@ -21,7 +21,9 @@
   <tbody>
     <% @examples.each do |example| %>
       <tr>
-        <td><%= example.c1 %></td>
+        <!--td><%= example.c1 %></td-->
+        <td><%= @dtypes.find(example.c1).dtype %>
+
         <td><%= example.c2 %></td>
         <td><%= example.c3 %></td>
         <td><%= example.c4 %></td>

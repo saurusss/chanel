@@ -11,52 +11,104 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :c1 %>
-    <%= form.text_field :c1 %>
-  </div>
+  
+  <table>
+    <tr>
+      <div class="field">
+        <td><%= form.label :c1 %></td>
+        <% if example.c1 == nil %>
+             <% example.c1 = 99 %>
+        <% end %>
+        <td><%= @dtypes.find(example.c1).dtype %>
+        <% @dtypes.each do |f| %>
+        <tr >
+              <td colspan="1" align="right"> <%= form.radio_button :c1, f.id %> </td>
+              <td> <%= form.label f.dtype  %> </td>
+        </tr>
+        <% end %>
+      </div>
+    </tr>
+    
+    <tr>
+      <div class="field">
+        <td><%= form.label :c2 %></td>
+        <td><%= form.check_box  :c2 %></td>
+      </div>
+    </tr>
+    
+    <tr>
+      <div class="field">
+        <td><%= form.label :c3 %></td>
+        <% if example.c3 == nil %>
+           <% example.c3 = 99 %>
+        <% end %>
+        <td><%= @dtypes.find(example.c3).dtype %>
+        <% @dtypes.each do |d| %>
+           <td><%= form.select :c3, @dtypes.first.dtype %></td>
+        <% end %>          
+      </div>
+    </tr>
+    
+    <tr>
 
-  <div class="field">
-    <%= form.label :c2 %>
-    <%= form.check_box  :c2 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c3 %>
-    <%= form.text_area :c3 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c4 %>
-    <%= form.text_field :c4 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c5 %>
-    <%= form.text_field :c5 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c6 %>
-    <%= form.text_field :c6 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c7 %>
-    <%= form.text_field :c7 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c8 %>
-    <%= form.text_field :c8 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :c9 %>
-    <%= form.text_field :c9 %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+      <div class="field">
+        <td><%= form.label :c4 %></td>
+        <% s_dtype ={}%>
+        <% @dtypes.each do |d|       %>
+           <% s_dtype[d.dtype] = d.id %>
+        <% end %>
+        <!--td><%= form.search_field :c4, s_dtype %></td-->
+        <td><%= form.select :c4, s_dtype %></td>
+ 
+      </div>
+    </tr>
+    
+    <tr>
+      <div class="field" >
+        <td><%= form.label :c5 %></td>
+        <td><%= form.search_field :c5 %></td>
+        <td> <select name="<% :c5 %>">
+                <% @dtypes.each do |d|%>
+                    <option value ="<%=d.id%>" > <%=d.dtype%> </option>
+                <% end %>
+              </select>
+        </td>
+      </div>
+    </tr>
+    
+    <tr>
+      <div class="field">
+        <td><%= form.label :c6 %></td>
+        <td><%= form.text_field :c6 %></td>
+      </div>
+    </tr>
+    
+    <tr>
+      <div class="field">
+        <td><%= form.label :c7 %></td>
+        <td><%= form.text_field :c7 %></td>
+      </div>
+    </tr>
+    
+    <tr>
+      <div class="field">
+        <td><%= form.label :c8 %></td>
+        <td><%= form.text_field :c8 %></td>
+      </div>
+    </tr>
+    
+    <tr>
+      <div class="field">
+        <td><%= form.label :c9 %></td>
+        <td><%= form.text_field :c9 %></td>
+      </div>
+    </tr>
+    
+    <tr>
+      <div class="actions">
+        <td><%= form.submit %></td>
+      </div>
+      </tr>
+  </table>
+ 
 <% end %>
