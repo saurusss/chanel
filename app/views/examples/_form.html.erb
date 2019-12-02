@@ -16,15 +16,19 @@
     <tr>
       <div class="field">
         <td><%= form.label :c1 %></td>
-        <% if example.c1 == nil %>
-             <% example.c1 = 99 %>
+        <%# if example.c1 == nil %>
+             <%# example.c1 = 99 %>
+        <%# end %>
+        <% unless @dtypes.exists?(example.c1) %>
+        <%= example.c1 = 99 %>
         <% end %>
+
         <td><%= @dtypes.find(example.c1).dtype %>
         <% @dtypes.each do |f| %>
-        <tr >
-              <td colspan="1" align="right"> <%= form.radio_button :c1, f.id %> </td>
-              <td> <%= form.label f.dtype  %> </td>
-        </tr>
+          <tr >
+            <td colspan="1" align="right"> <%= form.radio_button :c1, f.id %> </td>
+            <td> <%= form.label f.dtype  %> </td>
+          </tr>
         <% end %>
       </div>
     </tr>
@@ -39,9 +43,13 @@
     <tr>
       <div class="field">
         <td><%= form.label :c3 %></td>
-        <% if example.c3 == nil %>
-           <% example.c3 = 99 %>
+        <%# if example.c3 == nil %>
+           <%# example.c3 = 99 %>
+        <%# end %>
+        <% unless @dtypes.exists?(example.c3) %>
+              <%= example.c3 = 99 %>
         <% end %>
+
         <td><%= @dtypes.find(example.c3).dtype %>
         <% @dtypes.each do |d| %>
            <td><%= form.select :c3, @dtypes.first.dtype %></td>
@@ -50,7 +58,6 @@
     </tr>
     
     <tr>
-
       <div class="field">
         <td><%= form.label :c4 %></td>
         <% s_dtype ={}%>
@@ -59,7 +66,6 @@
         <% end %>
         <!--td><%= form.search_field :c4, s_dtype %></td-->
         <td><%= form.select :c4, s_dtype %></td>
- 
       </div>
     </tr>
     
@@ -67,7 +73,7 @@
       <div class="field" >
         <td><%= form.label :c5 %></td>
         <td><%= form.search_field :c5 %></td>
-        <td> <select name="<% :c5 %>">
+        <td>  <select name="<% :c5 %>">
                 <% @dtypes.each do |d|%>
                     <option value ="<%=d.id%>" > <%=d.dtype%> </option>
                 <% end %>

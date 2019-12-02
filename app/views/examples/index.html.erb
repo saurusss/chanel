@@ -22,8 +22,10 @@
     <% @examples.each do |example| %>
       <tr>
         <!--td><%= example.c1 %></td-->
+        <% unless @dtypes.exists?(example.c1)%>
+           <%= example.c1 = 99 %>
+        <% end %>
         <td><%= @dtypes.find(example.c1).dtype %>
-
         <td><%= example.c2 %></td>
         <td><%= example.c3 %></td>
         <td><%= example.c4 %></td>
