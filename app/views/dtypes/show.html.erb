@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Dtype:</strong>
-  <%= @dtype.dtype %>
-</p>
+</br>
 
+<table>
+  <tr>
+    <td><strong>Dtype_id:</strong></td>
+    <td><%= @dtype.id %> </td>
+  </tr>
+  <tr>
+    <td><strong>Dtype:</strong></td>
+    <td><%= @dtype.dtype %></td>
+  </tr>
+</table>
+</br>
 <%= link_to 'Edit', edit_dtype_path(@dtype) %> |
 <%= link_to 'Back', dtypes_path %>
