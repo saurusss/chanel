@@ -54,11 +54,17 @@ class DtypesController < ApplicationController
   # DELETE /dtypes/1
   # DELETE /dtypes/1.json
   def destroy
-    @dtype.destroy
-    respond_to do |format|
-      format.html { redirect_to dtypes_url, notice: 'Dtype was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    if Itasset.exists?(dtype_id: params[:id])  
+        @dtypes = Dtype.all    
+        redirect_to dtypes_path, notice: " There is asset registered using this dtype : #{params[:id]} - #{@dtypes.find(params[:id]).dtype}"
+
+    else 
+        @dtype.destroy
+        respond_to do |format|
+          format.html { redirect_to dtypes_url, notice: 'Dtype was successfully destroyed.' }
+          format.json { head :no_content }
+        end
+    end 
   end
 
   private

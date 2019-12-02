@@ -47,6 +47,7 @@ class ItassetsController < ApplicationController
   # POST /itassets
   # POST /itassets.json
   def create
+    @dtypes = Dtype.all
     @itasset = Itasset.new(itasset_params)
 
     respond_to do |format|
