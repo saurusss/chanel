@@ -3,12 +3,12 @@
 <h1>Stores search result </h1>
 
 <div class="well">
-<%= form_tag "/stores/search", method: "post" do %>
-    Store name : 
-    <input type="text"   name="storename" >
-    <input type="submit" value="Store search"> 
-<% end %> 
-</br>
+    <%= form_tag "/stores/search", method: "post" do %>
+        Store name : 
+        <input type="text"   name="storename" >
+        <input type="submit" value="Store search"> 
+    <% end %> 
+    </br>
     <p>
       Selected store count : <%= @stores.count %> 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
