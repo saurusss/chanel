@@ -9,12 +9,15 @@
     <input type="submit" value="Store search"> 
 <% end %> 
 </br>
-<p>Selected store count : <%= @stores.count %> 
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- select-where :   <%= @sel_storename %>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- <%= link_to 'New Store', new_store_path, class: 'btn btn-default' %> | 
- <%= link_to 'Store - ALL ', stores_path, class: 'btn btn-default' %> </p> 
+    <p>
+      Selected store count : <%= @stores.count %> 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      select-where :   <%= @sel_storename %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= link_to 'New Store', new_store_path, class: 'btn btn-default' %> | 
+      <%= link_to 'Store - ALL ', stores_path, class: 'btn btn-default' %> |
+      <%= link_to 'Home', '/', class: 'btn btn-default'%> 
+    </p> 
 </div>
 
 

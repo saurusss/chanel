@@ -56,7 +56,7 @@ class DtypesController < ApplicationController
   def destroy
     if Itasset.exists?(dtype_id: params[:id])  
         @dtypes = Dtype.all    
-        redirect_to dtypes_path, notice: " There is asset registered using this dtype : #{params[:id]} - #{@dtypes.find(params[:id]).dtype}"
+        redirect_to dtypes_path, notice: " Can't delete !! There is asset registered using this dtype : #{params[:id]} - #{@dtypes.find(params[:id]).dtype}"
 
     else 
         @dtype.destroy

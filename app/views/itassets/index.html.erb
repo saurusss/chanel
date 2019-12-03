@@ -3,12 +3,14 @@
 <h1>Assets - ALL</h1>
 
 <div class="well">
-  <p>Registered Asset count : <%= @itassets.count %>  
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  order by : <%= @orderkey %>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <%= link_to 'New Asset', new_itasset_path, class: 'btn btn-default' %> |
-  <%= link_to "Stores", stores_path, class: 'btn btn-default' %></p>
+    <p>Registered Asset count : <%= @itassets.count %>  
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      order by : <%= @orderkey %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= link_to 'New Asset', new_itasset_path, class: 'btn btn-default' %> |
+      <%= link_to "Stores", stores_path, class: 'btn btn-default' %> |
+      <%= link_to 'Home', '/', class: 'btn btn-default'%> 
+    </p>
 </div>
 
 
