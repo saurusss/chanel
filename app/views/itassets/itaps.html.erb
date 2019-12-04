@@ -3,13 +3,47 @@
 <h1>Assets - <%= @sel_storename  %> </h1>
              
 <div class="well">
-    <p>Registered Asset count : <%= @itassets.count %>  
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <%= link_to 'New Asset', new_itasset_path, class: 'btn btn-default' %> |
-      <%= link_to "Stores", stores_path, class: 'btn btn-default' %> |
-      <%= link_to "to be update", '/itassets/itaps', class: 'btn btn-default'  %> |
-      <%= link_to 'Home', '/', class: 'btn btn-default'%> 
-    </p>
+  <p>Registered Asset count : <%= @itassets.count %>  
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to 'New Asset', new_itasset_path, class: 'btn btn-default' %> |
+    <%= link_to "Stores", stores_path, class: 'btn btn-default' %> |
+    <%= link_to "to be update", '/itassets/itaps', class: 'btn btn-default'  %> |
+    <%= link_to 'Home', '/', class: 'btn btn-default'%> 
+  </p>
 </div>
+
+<table class="table" >
+  <thead class="well">
+    <tr>
+      <th>Device type</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% count = {} %>
+      <% @itassets.each do |i| %>
+          <% dtype = i.dtype.dtype %>
+          <% if count[dtype] == nil %>
+                <% count[dtype] = 1 %>
+          <% else %>
+                <% count[dtype]  = count[dtype]  + 1 %>
+          <% end %>
+      <% end %>  
+      <% total = 0 %>
+      <% count.each do |c| %>
+          <% total  = total + c[1] %>
+          <tr>
+            <td class="col-md-1"><%= c[0] %></td>
+            <td class="col-md-1"><%= c[1] %></td>
+          </tr>
+          <% end %> 
+          </tr>
+            <td class="col-md-1"> TOTAL </td>
+            <td class="col-md-1"><%= total %>
+          </tr>
+    </tr>
+  </tbody>
+</table>
