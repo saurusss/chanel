@@ -1,6 +1,17 @@
 class ItassetsController < ApplicationController
   before_action :set_itasset, only: [:show, :edit, :update, :destroy]
 
+  def itaps
+    if params[:store_id] == "0"
+      @itassets = Itasset.all
+      @sel_storename = "ALL"
+    else
+      @itassets = Itasset.where(store_id: params[:store_id])
+      @sel_storename = Store.find(params[:store_id]).storename
+      
+    end
+  end
+
   # GET /itassets
   # GET /itassets.json
   def index
@@ -17,7 +28,8 @@ class ItassetsController < ApplicationController
     if @orderkey == nil
       @orderkey = "mgmtno"
     end
-    @sel_storename = Store.where(id: params[:store_id]).first.storename
+    @sel_storename = Store.find(params[:store_id]).storename
+
     @itassets = Itasset.where(store_id: params[:store_id]).order(@orderkey).paginate(page: params[:page], per_page: 10)
   end
   # GET /itassets/1

@@ -17,6 +17,7 @@
             <%= link_to 'New Itasset-this store', "/itassets/newss/#{@itassets.first.store_id}", class: 'btn btn-default' %> |
             <%= link_to 'Assetlist - ALL', itassets_path, class: 'btn btn-default' %> |
             <%= link_to "Stores List", stores_path, class: 'btn btn-default' %> |
+            <%= link_to "부서 자산 현황", "/itassets/itaps/#{@itassets.first.store_id}", class: 'btn btn-default'  %> |
             <%= link_to 'Home', '/', class: 'btn btn-default'%> 
         </p>
     </div>
