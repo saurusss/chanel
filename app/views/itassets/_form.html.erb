@@ -13,9 +13,9 @@
 
   <table>
 
-      <% if @itasset.store_id == nil %>
+      <% if @itasset.store_id == 0 ||  @itasset.store_id == nil %>
           <tr class="field">
-            <td><%= form.label :store_id %></td>
+            <td>Store_id<%#= form.label :store_id   %></td>
             <td><%= form.text_field :store_id %></td>
           </tr>
       <% else %> 

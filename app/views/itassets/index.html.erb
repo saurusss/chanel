@@ -7,9 +7,9 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       order by : <%= @orderkey %>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <%= link_to 'New Asset', new_itasset_path, class: 'btn btn-default' %> |
-      <%= link_to "Stores", stores_path, class: 'btn btn-default' %> |
-      <%= link_to "전체 자산 현황", '/itassets/itaps/0' , class: 'btn btn-default'  %> |
+      <%= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %> 
+      <%= link_to "Stores", stores_path, class: 'btn btn-default' %> 
+      <%= link_to "자산등록현황-전체", '/itassets/itaps/0' , class: 'btn btn-default'  %> 
       <%= link_to 'Home', '/', class: 'btn btn-default'%> 
     </p>
 </div>
@@ -81,4 +81,4 @@
 
 <%= will_paginate @itassets, renderer: BootstrapPagination::Rails,  previous_label: "Previous", next_label: "Newer", inner_window: 1, outer_windows: 0 %>
 <br>
-<%= link_to 'New Itasset', new_itasset_path, class: 'btn btn-default' %>
+<%= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %>

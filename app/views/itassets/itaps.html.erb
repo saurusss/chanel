@@ -7,9 +7,12 @@
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <%= link_to 'New Asset', new_itasset_path, class: 'btn btn-default' %> |
-    <%= link_to "Stores", stores_path, class: 'btn btn-default' %> |
-    <%= link_to "to be update", '/itassets/itaps', class: 'btn btn-default'  %> |
+    <%#= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %> 
+    <%= link_to '자산등록', "/itassets/newss/#{@itassets.first.store_id}", class: 'btn btn-default' %> 
+    
+    <%= link_to "Stores", stores_path, class: 'btn btn-default' %> 
+    <%= link_to "to be update", '/itassets/itaps', class: 'btn btn-default'  %> 
+    
     <%= link_to 'Home', '/', class: 'btn btn-default'%> 
   </p>
 </div>
