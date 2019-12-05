@@ -47,3 +47,9 @@
     </tr>
   </tbody>
 </table>
+
+<%= link_to '  Back to All assets list', itassets_path %>   
+<% if @sel_storename != "ALL" %>
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+    <%= link_to 'Back to ' + @sel_storename  + ' IT asset list', "/itassets/search/#{@itassets.first.store_id} " %>
+<% end %>
