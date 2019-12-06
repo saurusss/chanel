@@ -19,20 +19,17 @@
   <thead class="well">
     <tr>
       <th class="col-md-2">Store name</th>
-      <th align="center" class="col-md-1">Total</th>
+      <th class="col-md-1">Total</th>
 
       <% dtypestbl = {} %>
       <% @dtypes.each do |d|%>
-        <%  dtypestbl[d.id] = 0%>
+        <% dtypestbl[d.id] = 0%>
         <th align="center" class="col-md-1"> <%=d.dtype%> </td>
       <% end %>
-      <%# dtype%>
-
     </tr>
   </thead>
 
-  <tbody>
-     
+  <tbody>     
     <% grosstotal = 0 %>
     <% @stores.each do |s| %>
     <tr>
@@ -43,8 +40,7 @@
             <% dtypestbl[d] = dtypestbl[d] + t %>
             <% grosstotal = grosstotal + t %>
             <td  align="center"> <%= t %></td>
-        <% end %>
-        
+        <% end %>        
     </tr>
     <% end %>
     <tr>
@@ -53,9 +49,7 @@
         <% dtypestbl.each do | did, dq | %>
             <td align="center"><%= dq %></td>
         <% end %>
-    </tr>
-        
-      
+    </tr>          
   </tbody>
 </table>  
 
