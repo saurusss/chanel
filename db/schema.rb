@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_114428) do
+ActiveRecord::Schema.define(version: 2019_12_06_043615) do
 
   create_table "assetlists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mgmtno"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_114428) do
     t.string "dtype"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "priority"
   end
 
   create_table "examples", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,33 +96,34 @@ ActiveRecord::Schema.define(version: 2019_12_01_114428) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "itassets", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "id"
-    t.text "mgmtno"
+  create_table "itassets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "mgmtno"
     t.bigint "store_id"
-    t.text "username"
-    t.text "placetouse"
-    t.text "devicetype"
-    t.text "purpose"
-    t.text "manufacture"
-    t.text "modelno"
-    t.text "serialno"
-    t.text "cpuspeed"
-    t.text "ramsize"
-    t.text "disksize"
-    t.text "os"
-    t.text "hostname"
-    t.text "ipaddr"
-    t.text "gwaddr"
-    t.text "macwire"
-    t.text "macwireless"
+    t.string "username"
+    t.string "placetouse"
+    t.string "devicetype"
+    t.string "purpose"
+    t.string "manufacture"
+    t.string "modelno"
+    t.string "serialno"
+    t.string "cpuspeed"
+    t.string "ramsize"
+    t.string "disksize"
+    t.string "os"
+    t.string "hostname"
+    t.string "ipaddr"
+    t.string "gwaddr"
+    t.string "macwire"
+    t.string "macwireless"
     t.date "date_purchase"
     t.date "date_produce"
     t.integer "amtpurchase"
     t.text "remarks"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "dtype_id"
+    t.index ["dtype_id"], name: "index_itassets_on_dtype_id"
+    t.index ["store_id"], name: "index_itassets_on_store_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -161,5 +163,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_114428) do
   add_foreign_key "assetlists", "stores"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "itassets", "dtypes"
+  add_foreign_key "itassets", "stores"
   add_foreign_key "posts", "users"
 end

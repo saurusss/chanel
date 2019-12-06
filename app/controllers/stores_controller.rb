@@ -15,6 +15,11 @@ class StoresController < ApplicationController
     #redirect_to stores_path
   end
 
+  def  itaallstore
+    @stores = Store.all 
+    @dtypes = Dtype.all.order(:priority)
+    @itassets = Itasset.all
+  end
 
 
   # GET /stores/1

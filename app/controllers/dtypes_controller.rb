@@ -75,6 +75,6 @@ class DtypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dtype_params
-      params.require(:dtype).permit(:dtype)
+      params.require(:dtype).permit(:dtype, :priority)
     end
 end

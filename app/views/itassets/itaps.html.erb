@@ -20,34 +20,32 @@
 <table class="table" >
   <thead class="well">
     <tr>
-      <th>Device type</th>
-      <th>Quantity</th>
+      <th class="col-md-1">Device type</th>
+      <th class="col-md-1">Quantity</th>
+      <th colspan="10"></th>
     </tr>
   </thead>
-
   <tbody>
-      <% count = {} %>
+      <% count = {}%>
+      <% total = 0 %>
+      <% @dtypes.each   { |d| count[d.dtype] = 0 }%>      
       <% @itassets.each do |i| %>
           <% dtype = i.dtype.dtype %>
-          <% if count[dtype] == nil %>
-                <% count[dtype] = 1 %>
-          <% else %>
-                <% count[dtype]  = count[dtype]  + 1 %>
-          <% end %>
+          <% count[dtype]  = count[dtype]  + 1 %>
+          <% total = total + 1 %>
       <% end %>  
-      <% total = 0 %>
-      <% count.each do |c| %>
-          <% total  = total + c[1] %>
+      
+      <% count.each do | ck, cq | %>
           <tr>
-            <td class="col-md-1"><%= c[0] %></td>
-            <td class="col-md-1"><%= c[1] %></td>
+            <td><%= ck %></td>
+            <td align="center"><%= cq %></td>
           </tr>
-          <% end %> 
-          </tr>
-            <td class="col-md-1"> TOTAL </td>
-            <td class="col-md-1"><%= total %>
-          </tr>
-    </tr>
+      <% end %> 
+      <tr>
+        <td> TOTAL </td>
+        <td align="center"><%= total %>
+      </tr>
+    
   </tbody>
 </table>
 

@@ -7,16 +7,19 @@
     <tr>
       <th>ID </th>
       <th>Dtype </th>
+      <th>Priority </th>
 
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+    <% @dtypes = @dtypes.all.order(:priority)%>
     <% @dtypes.each do |dtype| %>
       <tr>
         <td><%= dtype.id %></td>
         <td><%= dtype.dtype %></td>
+        <td><%= dtype.priority %></td>
         <td><%= link_to 'Show', dtype %></td>
         <td><%= link_to 'Edit', edit_dtype_path(dtype) %></td>
         <td><%= link_to 'Destroy', dtype, method: :delete, data: { confirm: 'Are you sure?' } %></td>

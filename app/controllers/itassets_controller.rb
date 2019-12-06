@@ -8,8 +8,8 @@ class ItassetsController < ApplicationController
     else
       @itassets = Itasset.where(store_id: params[:store_id])
       @sel_storename = Store.find(params[:store_id]).storename
-      
     end
+    @dtypes = Dtype.all.order(:priority)
   end
 
   # GET /itassets

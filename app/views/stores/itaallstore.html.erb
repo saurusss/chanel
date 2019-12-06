@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<h1>점별자산현황-전체</h1>
+             
+<div class="well">
+  <p>Registered Stores count : <%= @stores.count %>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     Registered IT assets count : <%= @itassets.count %>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <%= link_to "Stores", stores_path, class: 'btn btn-default' %> 
+    
+    <%= link_to 'Home', '/', class: 'btn btn-default'%> 
+  </p>
+</div>
+
+<table class="table" >
+  <thead class="well">
+    <tr>
+      <th class="col-md-2">Store name</th>
+      <th align="center" class="col-md-1">Total</th>
+
+      <% dtypestbl = {} %>
+      <% @dtypes.each do |d|%>
+        <%  dtypestbl[d.id] = 0%>
+        <th align="center" class="col-md-1"> <%=d.dtype%> </td>
+      <% end %>
+      <%# dtype%>
+
+    </tr>
+  </thead>
+
+  <tbody>
+     
+    <% grosstotal = 0 %>
+    <% @stores.each do |s| %>
+    <tr>
+        <td><%= s.storename  %> </td>
+        <td align="center" ><%= s.dtypes.count%> </td>
+        <% dtypestbl.each do |d, dq|%>
+            <% t = s.dtypes.where(id: d).count %> 
+            <% dtypestbl[d] = dtypestbl[d] + t %>
+            <% grosstotal = grosstotal + t %>
+            <td  align="center"> <%= t %></td>
+        <% end %>
+        
+    </tr>
+    <% end %>
+    <tr>
+        <td>Gross Total</td>
+        <td align="center"><%= grosstotal %></td>
+        <% dtypestbl.each do | did, dq | %>
+            <td align="center"><%= dq %></td>
+        <% end %>
+    </tr>
+        
+      
+  </tbody>
+</table>  
+
+
+<%= link_to '  Back to All assets list', itassets_path %>   
+ 
