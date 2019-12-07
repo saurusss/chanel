@@ -14,34 +14,34 @@
     </p>
 </div>
 
-
+<div class="container">
 <table class="table" >
   <thead class="well">
     <tr>
       <th colspan="3"></th>
-      <th><%= link_to "Mgmtno",       "/itassets/index/mgmtno" %></th>
-      <th><%= link_to "Store_name",   "/itassets/index/store_id" %> </th>
-      <th><%= link_to "Username",     "/itassets/index/username" %></th>
-      <th><%= link_to "Place to use", "/itassets/index/placetouse" %> </th>
-      <th><%= link_to "Dtype",        "/itassets/index/dtype_id" %> </th>
-      <th><%= link_to "Device type",  "/itassets/index/devicetype" %> </th>
-      <th>Purpose</th>
-      <th><%= link_to "Manufacture",  "/itassets/index/manufacture" %></th>
-      <th><%= link_to "Modelno",      "/itassets/index/modelno" %></th>
-      <th>Serialno</th>
-      <th>Cpu speed</th>
-      <th>Ram size</th>
-      <th>Disk size</th>
-      <th><%= link_to "Os",           "/itassets/index/os" %></th>
-      <th>Host name</th>
-      <th>Ipaddr</th>
-      <th>Gwaddr</th>
-      <th>Macwire</th>
-      <th>Macwireless</th>
-      <th>Date purchase</th>
-      <th>Date produce</th>
-      <th>Amt purchase</th>
-      <th>Remarks</th>
+      <th class="col-md-1"><%= link_to "Mgmtno",       "/itassets/index/mgmtno" %></th>
+      <th class="col-md-1"><%= link_to "Store_name",   "/itassets/index/store_id" %> </th>
+      <th class="col-md-1"><%= link_to "Username",     "/itassets/index/username" %></th>
+      <th class="col-md-1"><%= link_to "Place to use", "/itassets/index/placetouse" %> </th>
+      <th class="col-md-1"><%= link_to "Dtype",        "/itassets/index/dtype_id" %> </th>
+      <th class="col-md-1"><%= link_to "Device type",  "/itassets/index/devicetype" %> </th>
+      <th class="col-md-1">Purpose</th>
+      <th class="col-md-1"><%= link_to "Manufacture",  "/itassets/index/manufacture" %></th>
+      <th class="col-md-1"><%= link_to "Modelno",      "/itassets/index/modelno" %></th>
+      <th class="col-md-1">Serialno</th>
+      <th class="col-md-1">Cpu speed</th>
+      <th class="col-md-1">Ram size</th>
+      <th class="col-md-1">Disk size</th>
+      <th class="col-md-1"><%= link_to "Os", "/itassets/index/os" %></th>
+      <th class="col-md-1">Host name</th>
+      <th class="col-md-1">Ipaddr</th>
+      <th class="col-md-1">Gwaddr</th>
+      <th class="col-md-1">Macwire</th>
+      <th class="col-md-1">Macwireless</th>
+      <th class="col-md-2">DatePurchase</th>
+      <th class="col-md-2">DateProduce</th>
+      <th class="col-md-1">Amt purchase</th>
+      <th class="col-md-1">Remarks</th>
     </tr>
   </thead>
 
@@ -72,13 +72,13 @@
         <td><%= itasset.macwireless %></td>
         <td><%= itasset.date_purchase %></td>
         <td><%= itasset.date_produce %></td>
-        <td><%= itasset.amtpurchase %></td>
+        <td align="right"><%= ActiveSupport::NumberHelper.number_to_delimited(itasset.amtpurchase) %></td>
         <td><%= itasset.remarks %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <%= will_paginate @itassets, renderer: BootstrapPagination::Rails,  previous_label: "Previous", next_label: "Newer", inner_window: 1, outer_windows: 0 %>
 <br>
 <%= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %>

@@ -46,8 +46,8 @@
             <th>Gwaddr</th>
             <th>Macwire</th>
             <th>Macwireless</th>
-            <th>Date purchase</th>
-            <th>Date produce</th>
+            <th>DatePurchase</th>
+            <th>DateProduce</th>
             <th>Amtpurchase</th>
             <th>Remarks</th>
         </tr>
@@ -80,7 +80,7 @@
             <td><%= itasset.macwireless %></td>
             <td><%= itasset.date_purchase %></td>
             <td><%= itasset.date_produce %></td>
-            <td><%= itasset.amtpurchase %> </td>           
+            <td align="right"><%= ActiveSupport::NumberHelper.number_to_delimited(itasset.amtpurchase) %></td>
             <td><%= itasset.remarks %></td>
         </tr>
         <% end %>

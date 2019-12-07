@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :itaqntesmts
   get    '/' => 'home#index'
   get    '/about' => 'home#about'
   post   '/posts/:post_id' =>"comments#create"

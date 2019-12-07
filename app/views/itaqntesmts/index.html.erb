@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Itaqntesmts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Store</th>
+      <th>Dtype</th>
+      <th>Qntesmt</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @itaqntesmts.each do |itaqntesmt| %>
+      <tr>
+        <td><%= itaqntesmt.store %></td>
+        <td><%= itaqntesmt.dtype %></td>
+        <td><%= itaqntesmt.qntesmt %></td>
+        <td><%= link_to 'Show', itaqntesmt %></td>
+        <td><%= link_to 'Edit', edit_itaqntesmt_path(itaqntesmt) %></td>
+        <td><%= link_to 'Destroy', itaqntesmt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Itaqntesmt', new_itaqntesmt_path %>
