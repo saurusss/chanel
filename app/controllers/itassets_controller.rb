@@ -44,6 +44,7 @@ class ItassetsController < ApplicationController
     @itasset = Itasset.new
     @itasset.dtype_id = 99
     @dtypes = Dtype.all 
+    @stores = Store.all
   end
 
   def newss

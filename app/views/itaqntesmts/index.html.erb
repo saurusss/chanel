@@ -10,13 +10,9 @@
     <% end  %>
     </br>
     <% regist_cnt = 0 %>
-    <% unless @sel_stores == nil %>
-        <% @sel_stores.each do |s| %>
-          <% regist_cnt =  regist_cnt + s.itaqntesmts.count %>
-        <% end %>
-    <% else %>
-        <% regist_cnt = @itaqntesmts.count %>
-    <% end %>
+    
+    <% regist_cnt = @itaqntesmts.count %>
+ 
     <p>
       Registered esmtqnt count : <%= regist_cnt %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <% unless @sel_stores == nil %>
@@ -41,13 +37,10 @@
   </thead>
 
   <tbody>
-    <% if @sel_stores == nil %>
+
       <% @itaqntesmts.each do |itaqntesmt| %>
         <tr>
-          <td>
-          <%#= itaqntesmt.store.storename %>
-          <%= link_to itaqntesmt.store.storename , "/itaqntesmts/#{itaqntesmt.store.storename}/index" %>
-          </td>
+          <td><%= link_to itaqntesmt.store.storename , "/itaqntesmts/#{itaqntesmt.store.storename}/index" %></td>
           <td><%= itaqntesmt.dtype.dtype %></td>
           <td  align="center"><%= itaqntesmt.qntesmt %></td>
           <td><%= link_to 'Show', itaqntesmt %></td>
@@ -55,20 +48,7 @@
           <td><%= link_to 'Destroy', itaqntesmt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
-    <% else %>
-      <% @sel_stores.each do |s| %>
-          <% s.itaqntesmts.each do |qnt| %>  
-            <tr>
-              <td> 
-              <%#= s.storename %>  
-              <%= link_to s.storename , "/itaqntesmts/#{s.storename}/index" %>
-              </td>
-              <td> <%= qnt.dtype.dtype %> </td>
-              <td align="center"> <%= qnt.qntesmt %> </td>
-            </td>
-          <% end%>
-      <% end %>
-    <% end %>
+
   </tbody>
 </table>
 

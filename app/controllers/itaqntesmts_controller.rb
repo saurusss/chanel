@@ -5,15 +5,22 @@ class ItaqntesmtsController < ApplicationController
   # GET /itaqntesmts.json
 
   def index
-    unless params[:storename] == nil 
-      @sel_storename = params[:storename]
-      @sel_stores = Store.where("storename like ?", "%#{params[:storename]}%").order("id")
-    else
+    if  params[:storename] == nil 
       @sel_storename = nil
       @sel_stores = nil
+      @itaqntesmts = Itaqntesmt.all.order("store_id, dtype_id")
+    else
+      @sel_storename = params[:storename]
+      @sel_stores = Store.select(:id).where("storename like ?", "%#{params[:storename]}%").order("id")
+      @sel_st_ar = [] 
+      @sel_stores.each do |s|
+            @sel_st_ar.push(s.id)
+        end 
+      @itaqntesmts = Itaqntesmt.where(store_id: @sel_st_ar).order("store_id, dtype_id")         
     end
-    @itaqntesmts = Itaqntesmt.all.order("store_id, dtype_id")
   end 
+
+  
   # GET /itaqntesmts/1
   # GET /itaqntesmts/1.json
   def show
