@@ -3,10 +3,17 @@ class ItaqntesmtsController < ApplicationController
 
   # GET /itaqntesmts
   # GET /itaqntesmts.json
-  def index
-    @itaqntesmts = Itaqntesmt.all
-  end
 
+  def index
+    unless params[:storename] == nil 
+      @sel_storename = params[:storename]
+      @sel_stores = Store.where("storename like ?", "%#{params[:storename]}%").order("id")
+    else
+      @sel_storename = nil
+      @sel_stores = nil
+    end
+    @itaqntesmts = Itaqntesmt.all.order("store_id, dtype_id")
+  end 
   # GET /itaqntesmts/1
   # GET /itaqntesmts/1.json
   def show

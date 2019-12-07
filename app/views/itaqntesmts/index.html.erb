@@ -2,26 +2,72 @@
 
 <h1>Itaqntesmts</h1>
 
-<table>
-  <thead>
+<div class="well">
+    <%= form_tag "/itaqntesmts/index",  method: "post" do %>
+        Store name :  
+        <input type="text"   name="storename" >
+        <input type="submit" value="Store search"> 
+    <% end  %>
+    </br>
+    <% regist_cnt = 0 %>
+    <% unless @sel_stores == nil %>
+        <% @sel_stores.each do |s| %>
+          <% regist_cnt =  regist_cnt + s.itaqntesmts.count %>
+        <% end %>
+    <% else %>
+        <% regist_cnt = @itaqntesmts.count %>
+    <% end %>
+    <p>
+      Registered esmtqnt count : <%= regist_cnt %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <% unless @sel_stores == nil %>
+         Select-where : <%= @sel_storename %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <% end %>
+      <%= link_to 'New Store', new_store_path, class: 'btn btn-default' %> 
+      <%= link_to "자산명세표-전체", itassets_path, class: 'btn btn-default' %> 
+      <%= link_to "점별자산수량현황-전체", '/stores/itaallstore', class: 'btn btn-default' %> 
+      <%= link_to 'Home', '/', class: 'btn btn-default'%> 
+    </p> 
+</div>
+
+<table class="table">
+  <thead class="well">
     <tr>
-      <th>Store</th>
-      <th>Dtype</th>
-      <th>Qntesmt</th>
-      <th colspan="3"></th>
+      <th class="col-md-2">Store</th>
+      <th class="col-md-1">Dtype</th>
+      <th class="col-md-1">Qntesmt</th>
+      <th class="col-md-1"colspan="3"></th>
+      <th class="col-md-7"colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @itaqntesmts.each do |itaqntesmt| %>
-      <tr>
-        <td><%= itaqntesmt.store.storename %></td>
-        <td><%= itaqntesmt.dtype.dtype %></td>
-        <td><%= itaqntesmt.qntesmt %></td>
-        <td><%= link_to 'Show', itaqntesmt %></td>
-        <td><%= link_to 'Edit', edit_itaqntesmt_path(itaqntesmt) %></td>
-        <td><%= link_to 'Destroy', itaqntesmt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if @sel_stores == nil %>
+      <% @itaqntesmts.each do |itaqntesmt| %>
+        <tr>
+          <td>
+          <%#= itaqntesmt.store.storename %>
+          <%= link_to itaqntesmt.store.storename , "/itaqntesmts/#{itaqntesmt.store.storename}/index" %>
+          </td>
+          <td><%= itaqntesmt.dtype.dtype %></td>
+          <td  align="center"><%= itaqntesmt.qntesmt %></td>
+          <td><%= link_to 'Show', itaqntesmt %></td>
+          <td><%= link_to 'Edit', edit_itaqntesmt_path(itaqntesmt) %></td>
+          <td><%= link_to 'Destroy', itaqntesmt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <% @sel_stores.each do |s| %>
+          <% s.itaqntesmts.each do |qnt| %>  
+            <tr>
+              <td> 
+              <%#= s.storename %>  
+              <%= link_to s.storename , "/itaqntesmts/#{s.storename}/index" %>
+              </td>
+              <td> <%= qnt.dtype.dtype %> </td>
+              <td align="center"> <%= qnt.qntesmt %> </td>
+            </td>
+          <% end%>
+      <% end %>
     <% end %>
   </tbody>
 </table>
