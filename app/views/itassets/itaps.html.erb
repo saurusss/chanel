@@ -21,29 +21,43 @@
   <thead class="well">
     <tr>
       <th class="col-md-2">Device type</th>
-      <th class="col-md-1">Quantity</th>
-      <th colspan="9"></th>
+      <th class="col-md-1">Quantity - du diligence</th>
+      <th class="col-md-1">Quantity - Estimated</th>
+      <th class="col-md-1">Difference</th>
+      <th colspan="6"></th>
     </tr>
   </thead>
   <tbody>
       <% count = {}%>
       <% total = 0 %>
-      <% @dtypes.each   { |d| count[d.dtype] = 0 }%>      
+      <% esmtcnt = {}%> 
+      <% esmttot = 0 %> 
+      <% @dtypes.each   { |d| count[d.id] = 0 ; esmtcnt[d.id] = 0} %>      
       <% @itassets.each do |i| %>
-          <% dtype = i.dtype.dtype %>
+          <% dtype = i.dtype_id %>
           <% count[dtype]  = count[dtype]  + 1 %>
           <% total = total + 1 %>
-      <% end %>  
+      <% end %> 
+
+      <% @itaqntesmts.each do |q|%>
+          <% dtype = q.dtype_id%>
+          <% esmtcnt[dtype] = esmtcnt[dtype] + q.qntesmt %>
+          <% esmttot = esmttot +  q.qntesmt %>
+      <% end %>
       
       <% count.each do | ck, cq | %>
           <tr>
-            <td><%= ck %></td>
+            <td><%= @dtypes.find(ck).dtype %></td>
             <td align="center"><%= cq %></td>
+            <td align="center"><%= esmtcnt[ck] %></td>
+            <td align="center"><%= cq - esmtcnt[ck] %></td>
           </tr>
       <% end %> 
       <tr>
         <td> TOTAL </td>
         <td align="center"><%= total %>
+        <td align="center"><%= esmttot %>
+        <td align="center"><%= total - esmttot %>
       </tr>
     
   </tbody>

@@ -15,8 +15,8 @@
   <tbody>
     <% @itaqntesmts.each do |itaqntesmt| %>
       <tr>
-        <td><%= itaqntesmt.store %></td>
-        <td><%= itaqntesmt.dtype %></td>
+        <td><%= itaqntesmt.store.storename %></td>
+        <td><%= itaqntesmt.dtype.dtype %></td>
         <td><%= itaqntesmt.qntesmt %></td>
         <td><%= link_to 'Show', itaqntesmt %></td>
         <td><%= link_to 'Edit', edit_itaqntesmt_path(itaqntesmt) %></td>

@@ -4,9 +4,11 @@ class ItassetsController < ApplicationController
   def itaps
     if params[:store_id] == "0"
       @itassets = Itasset.all
+      @itaqntesmts = Itaqntesmt.all
       @sel_storename = "ALL"
     else
       @itassets = Itasset.where(store_id: params[:store_id])
+      @itaqntesmts = Itaqntesmt.where(store_id: params[:store_id])
       @sel_storename = Store.find(params[:store_id]).storename
     end
     @dtypes = Dtype.all.order(:priority)
@@ -91,11 +93,10 @@ class ItassetsController < ApplicationController
   # DELETE /itassets/1.json
   def destroy
     @itasset.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to itassets_url, notice: 'Itasset was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
-    redirect_to "/itassets/search/#{@itasset.store_id}"
+    respond_to do |format|
+       format.html { redirect_to itassets_url, notice: 'Itasset was successfully destroyed.' }
+       format.json { head :no_content }
+    end
   end
 
   private
