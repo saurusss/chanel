@@ -10,6 +10,7 @@ class ItassetsController < ApplicationController
       @itassets = Itasset.where(store_id: params[:store_id])
       @itaqntesmts = Itaqntesmt.where(store_id: params[:store_id])
       @sel_storename = Store.find(params[:store_id]).storename
+      @sel_store_id = params[:store_id]
     end
     @dtypes = Dtype.all.order(:priority)
   end
