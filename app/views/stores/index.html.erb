@@ -13,7 +13,7 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <%= link_to 'New Store', new_store_path, class: 'btn btn-default' %> 
       <%= link_to "자산명세표-전체", itassets_path, class: 'btn btn-default' %> 
-      <%= link_to "점별자산수량현황-전체", '/stores/itaallstore', class: 'btn btn-default' %> 
+      <%= link_to "자산수량현황-전체", '/stores/itaallstore', class: 'btn btn-default' %> 
       <%= link_to 'Home', '/', class: 'btn btn-default'%> 
     </p> 
 </div>
@@ -41,7 +41,8 @@
         <td><%= store.group %></td>
         <td><%= store.storecode %></td>
         <td><%= store.store_ab %></td>
-        <td><%= link_to store.storename, "/itassets/search/#{store.id}" %> </td>
+        <td><%= link_to store.storename, "/itassets/itaps/#{store.id}" %> </td-->
+        <!--td><%= link_to store.storename, "/itassets/search/#{store.id}" %> </td-->
         <td><%= store.extension %></td>
         <td><%= store.address %></td>
         <td><%= store.telno %></td>

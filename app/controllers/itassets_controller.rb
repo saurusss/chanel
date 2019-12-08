@@ -2,7 +2,7 @@ class ItassetsController < ApplicationController
   before_action :set_itasset, only: [:show, :edit, :update, :destroy]
 
   def itaps
-    if params[:store_id] == "0"
+    if params[:store_id]  == "0" || params[:store_id]  == nil
       @itassets = Itasset.all
       @itaqntesmts = Itaqntesmt.all
       @sel_storename = "ALL"
