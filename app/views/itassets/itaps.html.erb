@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <h1>자산등록현황 - <%= @sel_storename  %> </h1>
-             
+
+<%# if @itassets.count == 0 %>
+
 <div class="well">
   <p>Registered Asset count : <%= @itassets.count %>  
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <%#= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %> 
-    <%= link_to '자산등록', "/itassets/newss/#{@itassets.first.store_id}", class: 'btn btn-default' %> 
+    <%#= link_to '자산등록', "/itassets/newss/#{@itassets.first.store_id}", class: 'btn btn-default' %> 
     
     <%= link_to "Stores", stores_path, class: 'btn btn-default' %> 
     <%= link_to "to be update", '/itassets/itaps', class: 'btn btn-default'  %> 
@@ -63,8 +65,8 @@
   </tbody>
 </table>
 
-<%= link_to '  Back to All assets list', itassets_path %>   
-<% if @sel_storename != "ALL" %>
+<%= link_to '자산명세표-전체', itassets_path %>   
+<% if  @sel_storename != "ALL" && @itassets.count != 0 %>
     &nbsp;&nbsp; | &nbsp;&nbsp;
-    <%= link_to 'Back to ' + @sel_storename  + ' IT asset list', "/itassets/search/#{@itassets.first.store_id} " %>
+    <%= link_to 'Go to ' + @sel_storename  + ' IT asset list', "/itassets/search/#{@itassets.first.store_id} " %>
 <% end %>
