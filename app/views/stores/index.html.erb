@@ -12,12 +12,14 @@
       Registered Store count : <%= @stores.count %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <%= link_to 'New Store', new_store_path, class: 'btn btn-default' %> 
-      <%= link_to "자산명세표-전체", itassets_path, class: 'btn btn-default' %> 
-      <%= link_to "자산수량현황-전체", '/stores/itaallstore', class: 'btn btn-default' %> 
-      <%= link_to 'Home', '/', class: 'btn btn-default'%> 
+      <%= link_to 'Home', '/', class: 'btn btn-default'%> |
+      <%= link_to "자산명세표-전체", itassets_path %> |
+      <%= link_to "자산수량현황-전체", '/stores/itaallstore' %> |
+
+      
     </p> 
 </div>
-
+***** 매장별 등록 현황을 조회하려면 storename을 클릭하여 주십시오.
 
 <table class="table">
   <thead>

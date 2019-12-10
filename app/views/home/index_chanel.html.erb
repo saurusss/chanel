@@ -3,10 +3,13 @@
     <h1> IT 자산 조사</h1>
     <% if user_signed_in? %>
         <p><%= current_user.email %>님 환영합니다.</p>
-        <h2> <%= link_to "Store Mgmt", stores_path %> | 
-             <%= link_to "IT Asset list ", itassets_path %> | </h2>
-        <h3> <%= link_to "device type mgmt", dtypes_path %> |
-             <%= link_to "IT Asset estimate", itaqntesmts_path %> </h3>  
+        </br></br>
+        <h2> <%= link_to "Store Mgmt", stores_path %> | </h2> 
+        <h2> <%= link_to "IT Asset list ", itassets_path %> | </h2>
+        </br>
+        </br>
+        <h3> <%= link_to "device type mgmt", dtypes_path %> | </h3>  
+        <h3> <%= link_to "IT Asset estimate", itaqntesmts_path %> </h3>  
         </br></br>
         <a href="/users/sign_out" class='btn btn-default'>로그아웃</a>
 

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   resources :itaqntesmts
-  get    '/' => 'home#index'
+ # get    '/' => 'home#index'
+  get    '/' => 'home#index_chanel'
   get    '/about' => 'home#about'
 
   post   '/posts/:post_id' =>"comments#create"
