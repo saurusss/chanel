@@ -12,10 +12,13 @@
     <%#= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %> 
     <%#= link_to '자산등록', "/itassets/newss/#{@itassets.first.store_id}", class: 'btn btn-default' %> 
     <% if @sel_storename != "ALL"%>
-    <%= link_to "자산등록-#{@sel_storename}", 
-          "/itassets/newss/#{@sel_store_id}", class: 'btn btn-default' %> 
+      <%= link_to "자산등록@", 
+            "/itassets/newss/#{@sel_store_id}", class: 'btn btn-default' %> 
+      <%= link_to "자산명세표@", "/itassets/search/#{@sel_store_id}", class: 'btn btn-default'  %> 
+    <% else %>
+      <%= link_to "자산명세표",itassets_path, class: 'btn btn-default'  %> 
     <% end %>
-    <%= link_to "자산명세표", "/itassets/search/#{@sel_store_id}", class: 'btn btn-default'  %> 
+
     <%= link_to "Stores", stores_path, class: 'btn btn-default' %> 
     
     <%= link_to 'Home', '/', class: 'btn btn-default'%> 

@@ -4,8 +4,8 @@
     <% if user_signed_in? %>
         <p><%= current_user.email %>님 환영합니다.</p>
         </br></br>
-        <h2> <%= link_to "Store Mgmt", stores_path %> | </h2> 
-        <h2> <%= link_to "IT Asset list ", itassets_path %> | </h2>
+        <h2> <%= link_to "매장/부서 관리", stores_path %> | </h2> 
+        <h2> <%= link_to "IT 자산 관리 ", itassets_path %> | </h2>
         </br>
         </br>
         <h3> <%= link_to "device type mgmt", dtypes_path %> | </h3>  

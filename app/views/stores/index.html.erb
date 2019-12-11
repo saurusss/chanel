@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Stores</h1>  
+<h1>매장 / 부서</h1>  
 <div class="well">
     <%= form_tag "/stores/search", method: "post" do %>
-        Store name :  
+        매장(부서)명 :  
         <input type="text"   name="storename" >
         <input type="submit" value="Store search"> 
     <% end  %>
     </br>
     <p>
-      Registered Store count : <%= @stores.count %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      등록된 매장/부서 수 : <%= @stores.count %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <%= link_to 'New Store', new_store_path, class: 'btn btn-default' %> 
+      <%= link_to '매장/부서 등록', new_store_path, class: 'btn btn-default' %> 
       <%= link_to 'Home', '/', class: 'btn btn-default'%> |
       <%= link_to "자산명세표-전체", itassets_path %> |
       <%= link_to "자산수량현황-전체", '/stores/itaallstore' %> |

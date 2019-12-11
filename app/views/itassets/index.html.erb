@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Assets - ALL</h1>
+<h1>자산명세표 - 전체</h1>
 
 <div class="well">
     <p>Registered Asset count : <%= @itassets.count %>  
@@ -8,8 +8,8 @@
       order by : <%= @orderkey %>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <%= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %> 
-      <%= link_to "Stores", stores_path, class: 'btn btn-default' %> 
-      <%= link_to "자산수량집계-전체", '/itassets/itaps/0' , class: 'btn btn-default'  %> 
+      <%= link_to "자산수등록현황-전체", '/itassets/itaps/0' , class: 'btn btn-default'  %> 
+      <%= link_to "매장/부서", stores_path, class: 'btn btn-default' %> 
       <%= link_to 'Home', '/', class: 'btn btn-default'%> 
     </p>
 </div>

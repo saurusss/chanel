@@ -31,9 +31,15 @@ class ItassetsController < ApplicationController
     if @orderkey == nil
       @orderkey = "mgmtno"
     end
-    @sel_storename = Store.find(params[:store_id]).storename
 
-    @itassets = Itasset.where(store_id: params[:store_id]).order(@orderkey).paginate(page: params[:page], per_page: 10)
+    if params[:store_id] == 0 || params[:store_id] == nil
+      @sel_storename = "ALL"
+      @itassets = Itasset.all.order(@orderkey).paginate(page: params[:page], per_page: 10)
+    else
+      @sel_storename = Store.find(params[:store_id]).storename
+      @itassets = Itasset.where(store_id: params[:store_id]).order(@orderkey).\
+                  paginate(page: params[:page], per_page: 10)
+    end
   end
   # GET /itassets/1
   # GET /itassets/1.json
