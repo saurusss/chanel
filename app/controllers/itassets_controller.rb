@@ -6,6 +6,7 @@ class ItassetsController < ApplicationController
       @itassets = Itasset.all
       @itaqntesmts = Itaqntesmt.all
       @sel_storename = "ALL"
+      @sel_store_id = 0
     else
       @itassets = Itasset.where(store_id: params[:store_id])
       @itaqntesmts = Itaqntesmt.where(store_id: params[:store_id])
@@ -22,8 +23,20 @@ class ItassetsController < ApplicationController
     if @orderkey == nil
       @orderkey = "store_id"
     end
-      #@itassets = Itasset.all
+    if params[:store_id] == 0 || params[:store_id] == nil
+      @sel_storename = "ALL"
+      @sel_store_id = 0
       @itassets = Itasset.all.order(@orderkey).paginate(page: params[:page], per_page: 10)
+    else
+      @sel_storename = Store.find(params[:store_id]).storename
+      @sel_store_id = params[:store_id]
+      @itassets = Itasset.where(store_id: params[:store_id]).order(@orderkey).\
+                  paginate(page: params[:page], per_page: 10)
+    end
+    #@itassets = Itasset.all
+    #@itassets = Itasset.all.order(@orderkey).paginate(page: params[:page], per_page: 10)
+
+  
   end
 
   def search
@@ -49,6 +62,7 @@ class ItassetsController < ApplicationController
   # GET /itassets/new
   def new
     @itasset = Itasset.new
+    @itasset.store_id = params[:store_id]
     @itasset.dtype_id = 99
     @dtypes = Dtype.all 
     @stores = Store.all

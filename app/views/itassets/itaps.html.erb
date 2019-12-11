@@ -10,11 +10,10 @@
     
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <%#= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %> 
-    <%#= link_to '자산등록', "/itassets/newss/#{@itassets.first.store_id}", class: 'btn btn-default' %> 
-    <% if @sel_storename != "ALL"%>
+    <% if @sel_store_id != 0%>
       <%= link_to "자산등록@", 
-            "/itassets/newss/#{@sel_store_id}", class: 'btn btn-default' %> 
-      <%= link_to "자산명세표@", "/itassets/search/#{@sel_store_id}", class: 'btn btn-default'  %> 
+            "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %> 
+      <%= link_to "자산명세표@", "/itassets/index/#{@sel_store_id}", class: 'btn btn-default'  %> 
     <% else %>
       <%= link_to "자산명세표",itassets_path, class: 'btn btn-default'  %> 
     <% end %>

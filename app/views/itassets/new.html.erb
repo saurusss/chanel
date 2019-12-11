@@ -1,6 +1,12 @@
 </br>
 <%= link_to 'Back', itassets_path %>
-<h1>New Itasset</h1>
+
+
+<h1>IT자산 신규 등록</h1>
+
+<% if @itasset.store_id != nil && @itasset.store_id != 0 %>
+    <h2><%= @itasset.store.storename  %> </h2>
+<%end%>
 
 <%= render 'form', itasset: @itasset %>
 

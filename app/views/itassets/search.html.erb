@@ -14,12 +14,10 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             order by : <%= @orderkey %>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <%= link_to '자산등록', "/itassets/newss/#{@itassets.first.store_id}", 
-                 class: 'btn btn-default' %>  
-            <%= link_to "자산수량집계", "/itassets/itaps/#{@itassets.first.store_id}", 
-                 class: 'btn btn-default'  %> |
+            <%= link_to '자산등록', "/itassets/newss/#{@itassets.first.store_id}", class: 'btn btn-default' %> 
             <%= link_to '자산명세표-전체', itassets_path, class: 'btn btn-default' %> 
             <%= link_to "Stores", stores_path, class: 'btn btn-default' %> 
+            <%= link_to "자산수량집계", "/itassets/itaps/#{@itassets.first.store_id}", class: 'btn btn-default'  %> 
             <%= link_to 'Home', '/', class: 'btn btn-default'%> 
         </p>
     </div>

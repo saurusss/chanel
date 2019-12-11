@@ -1,83 +1,101 @@
 <p id="notice"><%= notice %></p>
 
-<h1>자산명세표 - 전체</h1>
+<h1>자산명세표 - <%= @sel_storename %></h1>
+<% if @itassets.count > 0 %>
+  <div class="well">
+      <p>Registered Asset count : <%= @itassets.count %>  
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+        order by : <%= @orderkey %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        매장명 : <%= @sel_storename%>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-<div class="well">
-    <p>Registered Asset count : <%= @itassets.count %>  
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      order by : <%= @orderkey %>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <%= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %> 
-      <%= link_to "자산수등록현황-전체", '/itassets/itaps/0' , class: 'btn btn-default'  %> 
-      <%= link_to "매장/부서", stores_path, class: 'btn btn-default' %> 
-      <%= link_to 'Home', '/', class: 'btn btn-default'%> 
-    </p>
-</div>
-<p>***** 매장별 자산등록 현황을 조회하려면 storename을 클릭하여 주십시오.</p>
+        <% if @sel_store_id != 0%>
+          <%= link_to '자산등록@', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %>
+          <%= link_to "자산등록현황@", "/itassets/itaps/#{@sel_store_id}",
+                   class: 'btn btn-default'  %>        
+        <%else%>
+          <%= link_to "자산등록현황", "/itassets/itaps/#{@sel_store_id}",
+                   class: 'btn btn-default'  %>        
+        <%end%>
+        
+        <%= link_to "매장/부서", stores_path, class: 'btn btn-default' %> 
+        <%= link_to 'Home', '/', class: 'btn btn-default'%> 
+      </p>
+  </div>
+  <p>***** 매장별 자산등록 현황을 조회하려면 storename을 클릭하여 주십시오.</p>
 
-<table class="table" >
-  <thead class="well">
-    <tr>
-      <th colspan="3"></th>
-      <th class="col-md-1" ><%= link_to "Mgmtno",      "/itassets/index/mgmtno"%></th>
-      <th class="col-md-1"><%= link_to "Storename",    "/itassets/index/store_id"  %></th>
-      <th class="col-md-1"><%= link_to "Username",     "/itassets/index/username"  %></th>
-      <th class="col-md-1"><%= link_to "Place to use", "/itassets/index/placetouse"  %></th>
-      <th class="col-md-1"><%= link_to "Dtype",        "/itassets/index/dtype_id" %></th>
-      <th class="col-md-1"><%= link_to "Device type",  "/itassets/index/devicetype"  %></th>
-      <th class="col-md-1">Purpose</th>
-      <th class="col-md-1"><%= link_to "Manufacture",  "/itassets/index/manufacture" %></th>
-      <th class="col-md-1"><%= link_to "Modelno",      "/itassets/index/modelno" %></th>
-      <th class="col-md-1">Serialno</th>
-      <th class="col-md-1">Cpu speed</th>
-      <th class="col-md-1">Ram size</th>
-      <th class="col-md-1">Disk size</th>
-      <th class="col-md-1"><%= link_to "Os",            "/itassets/index/os" %></th>
-      <th class="col-md-1">Host name</th>
-      <th class="col-md-1">Ipaddr</th>
-      <th class="col-md-1">Gwaddr</th>
-      <th class="col-md-1">Macwire</th>
-      <th class="col-md-1">Macwireless</th>
-      <th class="col-md-2">DatePurchase</th>
-      <th class="col-md-2">DateProduce</th>
-      <th class="col-md-1">Amt purchase</th>
-      <th class="col-md-1">Remarks</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @itassets.each do |itasset| %>
+  <table class="table">
+    <thead class="well">
       <tr>
-        <td><%= link_to 'Show', itasset %></td>
-        <td><%= link_to 'Edit', edit_itasset_path(itasset) %></td>
-        <td><%= link_to 'Delete', itasset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= itasset.mgmtno %></td>
-        <td><%= link_to itasset.store.storename, "/itassets/search/#{itasset.store_id}" %></td>
-        <td><%= itasset.username %></td>
-        <td><%= itasset.placetouse %></td>
-        <td><%= itasset.dtype.dtype %></td>
-        <td><%= itasset.devicetype %></td>
-        <td><%= itasset.purpose %></td>
-        <td><%= itasset.manufacture %></td>
-        <td><%= itasset.modelno %></td>
-        <td><%= itasset.serialno %></td>
-        <td><%= itasset.cpuspeed %></td>
-        <td><%= itasset.ramsize %></td>
-        <td><%= itasset.disksize %></td>
-        <td><%= itasset.os %></td>
-        <td><%= itasset.hostname %></td>
-        <td><%= itasset.ipaddr %></td>
-        <td><%= itasset.gwaddr %></td>
-        <td><%= itasset.macwire %></td>
-        <td><%= itasset.macwireless %></td>
-        <td><%= itasset.date_purchase %></td>
-        <td><%= itasset.date_produce %></td>
-        <td align="right"><%= ActiveSupport::NumberHelper.number_to_delimited(itasset.amtpurchase) %></td>
-        <td><%= itasset.remarks %></td>
+        <th colspan="3"></th>
+        <th class="col-md-1"><%= link_to "Mgmtno",      "/itassets/index/#{@sel_store_id}/mgmtno"%></th>
+        <th class="col-md-1"><%= link_to "Storename",    "/itassets/index/#{@sel_store_id}/store_id"  %></th>
+        <th class="col-md-1"><%= link_to "Username",     "/itassets/index/#{@sel_store_id}/username"  %></th>
+        <th class="col-md-1"><%= link_to "Place to use", "/itassets/index/#{@sel_store_id}/placetouse"  %></th>
+        <th class="col-md-1"><%= link_to "Dtype",        "/itassets/index/#{@sel_store_id}/dtype_id" %></th>
+        <th class="col-md-1"><%= link_to "Device type",  "/itassets/index/#{@sel_store_id}/devicetype"  %></th>
+        <th class="col-md-1">Purpose</th>
+        <th class="col-md-1"><%= link_to "Manufacture",  "/itassets/index/#{@sel_store_id}/manufacture" %></th>
+        <th class="col-md-1"><%= link_to "Modelno",      "/itassets/index/#{@sel_store_id}/modelno" %></th>
+        <th class="col-md-1">Serialno</th>
+        <th class="col-md-1">Cpu speed</th>
+        <th class="col-md-1">Ram size</th>
+        <th class="col-md-1">Disk size</th>
+        <th class="col-md-1"><%= link_to "Os",            "/itassets/index/os" %></th>
+        <th class="col-md-1">Host name</th>
+        <th class="col-md-1">Ipaddr</th>
+        <th class="col-md-1">Gwaddr</th>
+        <th class="col-md-1">Macwire</th>
+        <th class="col-md-1">Macwireless</th>
+        <th class="col-md-2">DatePurchase</th>
+        <th class="col-md-2">DateProduce</th>
+        <th class="col-md-1">Amt purchase</th>
+        <th class="col-md-1">Remarks</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @itassets.each do |itasset| %>
+        <tr>
+          <td><%= link_to 'Show', itasset %></td>
+          <td><%= link_to 'Edit', edit_itasset_path(itasset) %></td>
+          <td><%= link_to 'Delete', itasset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= itasset.mgmtno %></td>
+          <td><%= link_to itasset.store.storename, "/itassets/index/#{itasset.store_id}" %></td>
+          <td><%= itasset.username %></td>
+          <td><%= itasset.placetouse %></td>
+          <td><%= itasset.dtype.dtype %></td>
+          <td><%= itasset.devicetype %></td>
+          <td><%= itasset.purpose %></td>
+          <td><%= itasset.manufacture %></td>
+          <td><%= itasset.modelno %></td>
+          <td><%= itasset.serialno %></td>
+          <td><%= itasset.cpuspeed %></td>
+          <td><%= itasset.ramsize %></td>
+          <td><%= itasset.disksize %></td>
+          <td><%= itasset.os %></td>
+          <td><%= itasset.hostname %></td>
+          <td><%= itasset.ipaddr %></td>
+          <td><%= itasset.gwaddr %></td>
+          <td><%= itasset.macwire %></td>
+          <td><%= itasset.macwireless %></td>
+          <td><%= itasset.date_purchase %></td>
+          <td><%= itasset.date_produce %></td>
+          <td align="right"><%= ActiveSupport::NumberHelper.number_to_delimited(itasset.amtpurchase) %></td>
+          <td><%= itasset.remarks %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<%else%>
+
+  <% message = "There is no asset registered in the selected store
+      : #{@sel_storename} (click here to return)" %>
+  <%= link_to message, stores_path %>
+
+<%end%>
 
 <%= will_paginate @itassets, renderer: BootstrapPagination::Rails,  previous_label: "Previous", next_label: "Newer", inner_window: 1, outer_windows: 0 %>
 <br>

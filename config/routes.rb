@@ -13,10 +13,13 @@ Rails.application.routes.draw do
   post   '/stores/search'=> 'stores#search'
   get    '/stores/itaallstore', to: 'stores#itaallstore'
 
-  get    '/itassets/search/:store_id' => 'itassets#search'
-  get    '/itassets/newss/:store_id' => 'itassets#newss'
+  #get    '/itassets/search/:store_id' => 'itassets#search' # 19-12-11
+  get    '/itassets/index/:store_id' => 'itassets#index'    # 19-12-11
+  #get    '/itassets/newss/:store_id' => 'itassets#newss'  # 19-12-11
+  get    '/itassets/new/:store_id' => 'itassets#new'
   get    '/itassets/index/:orderkey'  => 'itassets#index'
-  get    '/itassets/search/:store_id/:orderkey' => 'itassets#search'
+  #get    '/itassets/search/:store_id/:orderkey' => 'itassets#search' #19-12-11
+  get    '/itassets/index/:store_id/:orderkey' => 'itassets#index'  #19-12-11
   #get    '/itassets/itapsall' => 'itassets#itapsall'
   get    '/itassets/itaps/:store_id' => 'itassets#itaps'
 
