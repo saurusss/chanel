@@ -112,5 +112,5 @@
 </p>
 </br>
 <%= link_to 'Edit', edit_itasset_path(@itasset) %>  &nbsp;&nbsp;| &nbsp;&nbsp;
-<%= link_to 'Back to All list', itassets_path %>  &nbsp;&nbsp;| &nbsp;&nbsp; 
-<%= link_to 'Back to ' + @itasset.store.storename + ' list', "/itassets/search/#{@itasset.store_id} " %>
+<%= link_to 'Back to 자산명세표-전체', itassets_path %>  &nbsp;&nbsp;| &nbsp;&nbsp; 
+<%= link_to 'Back to ' + @itasset.store.storename + '명세표', "/itassets/index/#{@itasset.store_id} " %>

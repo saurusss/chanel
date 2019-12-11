@@ -29,10 +29,14 @@ class ItaqntesmtsController < ApplicationController
   # GET /itaqntesmts/new
   def new
     @itaqntesmt = Itaqntesmt.new
+    @sel_store_id = params[:store_id]
+    @itaqntesmt.store_id = params[:store_id]
+    @dtypes = Dtype.all.order("priority")
   end
 
   # GET /itaqntesmts/1/edit
   def edit
+    @dtypes = Dtype.all
   end
 
   # POST /itaqntesmts

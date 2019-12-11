@@ -23,8 +23,9 @@ Rails.application.routes.draw do
   #get    '/itassets/itapsall' => 'itassets#itapsall'
   get    '/itassets/itaps/:store_id' => 'itassets#itaps'
 
-  post    '/itaqntesmts/index'            => 'itaqntesmts#index'
+  post    '/itaqntesmts/index'             => 'itaqntesmts#index'
   get     '/itaqntesmts/:storename/index'  => 'itaqntesmts#index'
+  get     '/itaqntesmts/:store_id/new'     => 'itaqntesmts#new'
   
   get    'searches/result' 
   resources :examples

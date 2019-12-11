@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Itaqntesmts</h1>
+<h1>예상수량</h1>
 
 <div class="well">
     <%= form_tag "/itaqntesmts/index",  method: "post" do %>
@@ -18,9 +18,9 @@
       <% unless @sel_stores == nil %>
          Select-where : <%= @sel_storename %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <% end %>
-      <%= link_to 'New Store', new_store_path, class: 'btn btn-default' %> 
+      <%= link_to '매장/부서', stores_path, class: 'btn btn-default' %> 
       <%= link_to "자산명세표-전체", itassets_path, class: 'btn btn-default' %> 
-      <%= link_to "점별자산수량현황-전체", '/stores/itaallstore', class: 'btn btn-default' %> 
+      <%= link_to "자산등록현황-전체", '/stores/itaallstore', class: 'btn btn-default' %> 
       <%= link_to 'Home', '/', class: 'btn btn-default'%> 
     </p> 
 </div>
@@ -54,4 +54,4 @@
 
 <br>
 
-<%= link_to 'New Itaqntesmt', new_itaqntesmt_path %>
+<%= link_to '예상수량등록', new_itaqntesmt_path, class: 'btn btn-default' %>

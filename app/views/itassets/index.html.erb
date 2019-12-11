@@ -14,9 +14,11 @@
           <%= link_to '자산등록@', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %>
           <%= link_to "자산등록현황@", "/itassets/itaps/#{@sel_store_id}",
                    class: 'btn btn-default'  %>        
+          <%= link_to "예상수량등록@", "/itaqntesmts/#{@sel_store_id}/new", class: 'btn btn-default' %>   
         <%else%>
           <%= link_to "자산등록현황", "/itassets/itaps/#{@sel_store_id}",
-                   class: 'btn btn-default'  %>        
+                   class: 'btn btn-default'  %>     
+          <%= link_to "예상수량", itaqntesmts_path, class: 'btn btn-default' %>   
         <%end%>
 
         <%= link_to "매장/부서", stores_path, class: 'btn btn-default' %> 

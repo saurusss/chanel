@@ -10,23 +10,36 @@
       </ul>
     </div>
   <% end %>
+  <table>
 
-  <div class="field">
-    <%= form.label :store_id %>
-    <%= form.text_field :store_id %>
-  </div>
+    <% if @sel_store_id == nil || @sel_store_id == 0 %>
+      <tr class="field">
+        <td><%= form.label :store_id %></td>
+        <td><%= form.text_field :store_id %></td>
+      </tr>
+    <% else %>
+      <tr class="field">
+          <td><%= form.label :store_id %></td>
+          <td><%= @itaqntesmt.store.storename%></td>
+          <td><%= form.hidden_field :store_id %></td>
+      </tr>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :dtype_id %>
-    <%= form.text_field :dtype_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :qntesmt %>
-    <%= form.number_field :qntesmt %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <tr class="field">
+      <td><%= form.label :dtype_id %></td>
+      <% s_dtype = {} %>
+      <% @dtypes.each do |d| %>
+          <% s_dtype[d.dtype] = d.id %>
+      <% end %>
+      <td><%= form.select :dtype_id, s_dtype %></td>
+    </tr>
+    <tr class="field">
+        <td>예상수량</td>
+        <td><%= form.number_field :qntesmt %></td>
+    </tr>
+    <tr class="actions">
+       <td> <%= form.submit %></td>
+    </tr>
+  </table>
+  </br>
 <% end %>

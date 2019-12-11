@@ -4,7 +4,7 @@ class DtypesController < ApplicationController
   # GET /dtypes
   # GET /dtypes.json
   def index
-    @dtypes = Dtype.all
+    @dtypes = Dtype.all.order("priority")
   end
 
   # GET /dtypes/1

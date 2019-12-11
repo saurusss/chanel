@@ -14,12 +14,14 @@
       <%= link_to "자산등록@", 
             "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %> 
       <%= link_to "자산명세표@", "/itassets/index/#{@sel_store_id}", class: 'btn btn-default'  %> 
+      <%= link_to "##예상자산등록@##", stores_path, class: 'btn btn-default' %> 
+        # 예상자산등록 작성 필요함
     <% else %>
       <%= link_to "자산명세표",itassets_path, class: 'btn btn-default'  %> 
     <% end %>
 
-    <%= link_to "Stores", stores_path, class: 'btn btn-default' %> 
-    
+    <%= link_to "매장/부서", stores_path, class: 'btn btn-default' %> 
+ 
     <%= link_to 'Home', '/', class: 'btn btn-default'%> 
   </p>
 </div>
@@ -73,5 +75,5 @@
 <%= link_to '자산명세표-전체', itassets_path %>   
 <% if  @sel_storename != "ALL" && @itassets.count != 0 %>
     &nbsp;&nbsp; | &nbsp;&nbsp;
-    <%= link_to 'Go to ' + @sel_storename  + ' IT asset list', "/itassets/search/#{@itassets.first.store_id} " %>
+    <%= link_to 'Back to ' + @sel_storename  + ' 명세표', "/itassets/index/#{@itassets.first.store_id} " %>
 <% end %>

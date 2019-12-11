@@ -10,4 +10,6 @@
 
 <%= render 'form', itasset: @itasset %>
 
-<%= link_to 'Back', itassets_path %>
+<%= link_to '자산명세표-전체', itassets_path %> | 
+
+<%= link_to "Back to #{@itasset.store.storename} 명세표",  "/itassets/index/#{@itasset.store_id}" %>
