@@ -53,8 +53,8 @@
           <% esmtcnt[q.dtype_id] = esmtcnt[q.dtype_id] + q.qntesmt %>
           <% esmtid[q.dtype_id] = q.id%>
           <% esmttot = esmttot +  q.qntesmt %>
-      <% end %> %>
-<%= esmtid %>
+      <% end %>
+
       <% esmtcnt.each  { | edtype, eqnt | esmtcnt[edtype] = "-"  if eqnt == 0 } %>
 
 
