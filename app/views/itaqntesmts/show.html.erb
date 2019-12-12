@@ -15,5 +15,6 @@
   <%= @itaqntesmt.qntesmt %>
 </p>
 
-<%= link_to 'Edit', edit_itaqntesmt_path(@itaqntesmt) %> |
-<%= link_to 'Back', itaqntesmts_path %>
+<%= link_to 'Edit', edit_itaqntesmt_path(@itaqntesmt) %> 
+<%#= link_to 'Back', itaqntesmts_path %> 
+  <%= link_to " | Back to " + @itaqntesmt.store.storename + " 자산등록현황", "/itassets/itaps/#{@itaqntesmt.store_id}" %>

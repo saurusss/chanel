@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   post    '/itaqntesmts/index'             => 'itaqntesmts#index'
   get     '/itaqntesmts/:storename/index'  => 'itaqntesmts#index'
   get     '/itaqntesmts/:store_id/new'     => 'itaqntesmts#new'
+  get     '/itaqntesmts/:store_id/:dtype_id/new'     => 'itaqntesmts#new'
+  #get    '/itaqntesmts/edit/:store_id/:dtype_id'     => 'itaqntesmts#edit'
   
   get    'searches/result' 
   resources :examples

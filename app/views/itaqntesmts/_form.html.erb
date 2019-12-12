@@ -10,9 +10,14 @@
       </ul>
     </div>
   <% end %>
+  s sto   a  <%= @sel_store_id%> </br>
+  s dtype a  <%= @sel_dtype_id%> </br>
+  s sto   b <%= @itaqntesmt.store_id%> </br>
+  s dty   b <%= @itaqntesmt.dtype_id%> </br>
+
   <table>
 
-    <% if @sel_store_id == nil || @sel_store_id == 0 %>
+    <% if @itaqntesmt.store_id == nil  %>
       <tr class="field">
         <td><%= form.label :store_id %></td>
         <td><%= form.text_field :store_id %></td>
@@ -25,14 +30,19 @@
       </tr>
     <% end %>
 
-    <tr class="field">
-      <td><%= form.label :dtype_id %></td>
-      <% s_dtype = {} %>
-      <% @dtypes.each do |d| %>
-          <% s_dtype[d.dtype] = d.id %>
-      <% end %>
-      <td><%= form.select :dtype_id, s_dtype %></td>
-    </tr>
+    <% if @itaqntesmt.dtype_id != nil   %>
+      <tr class="field">
+        <td><%= form.label :dtype_id %></td>
+        <td><%= @itaqntesmt.dtype.dtype %></td>
+        <td><%= form.hidden_field :dtype_id %></td>
+      </tr>
+    <% else %>
+        <% s_dtype ={} %>
+        <% @dtypes.each {|d| s_dtype[d.dtype] = d.id} %>
+        <td><%= form.label :dtype_id %></td>
+        <td><%= form.select :dtype_id, s_dtype %></td>
+    <% end %>
+
     <tr class="field">
         <td>예상수량</td>
         <td><%= form.number_field :qntesmt %></td>

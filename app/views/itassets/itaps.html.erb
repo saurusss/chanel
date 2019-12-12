@@ -6,7 +6,9 @@
 
 <div class="well">
   <p>Registered Asset count : <%= @itassets.count %>  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    estimated Asset count : <%= @itaqntesmts.count%>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <%#= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %> 
@@ -25,14 +27,13 @@
     <%= link_to 'Home', '/', class: 'btn btn-default'%> 
   </p>
 </div>
-
 <table class="table" >
   <thead class="well">
     <tr>
       <th class="col-md-2">Device type</th>
-      <th class="col-md-1">Quantity - du diligence</th>
-      <th class="col-md-1">Quantity - Estimated</th>
-      <th class="col-md-1">Difference</th>
+      <th class="col-md-1">실사 수량</th>
+      <th class="col-md-1">예상 수량</th>
+      <th class="col-md-1">  차이</th>
       <th colspan="6"></th>
     </tr>
   </thead>
@@ -41,32 +42,41 @@
       <% total = 0 %>
       <% esmtcnt = {}%> 
       <% esmttot = 0 %> 
+      <% esmtid = {}%>
       <% @dtypes.each   { |d| count[d.id] = 0 ; esmtcnt[d.id] = 0} %>      
       <% @itassets.each do |i| %>
           <% dtype = i.dtype_id %>
           <% count[dtype]  = count[dtype]  + 1 %>
           <% total = total + 1 %>
       <% end %> 
-
-      <% @itaqntesmts.each do |q|%>
-          <% dtype = q.dtype_id%>
-          <% esmtcnt[dtype] = esmtcnt[dtype] + q.qntesmt %>
+      <% @itaqntesmts.each do |q| %>
+          <% esmtcnt[q.dtype_id] = esmtcnt[q.dtype_id] + q.qntesmt %>
+          <% esmtid[q.dtype_id] = q.id%>
           <% esmttot = esmttot +  q.qntesmt %>
-      <% end %>
-      
-      <% count.each do | ck, cq | %>
+      <% end %> %>
+<%= esmtid %>
+      <% esmtcnt.each  { | edtype, eqnt | esmtcnt[edtype] = "-"  if eqnt == 0 } %>
+
+
+      <% count.each do | c_dtype, c_qnt | %>
           <tr>
-            <td><%= @dtypes.find(ck).dtype %></td>
-            <td align="center"><%= cq %></td>
-            <td align="center"><%= esmtcnt[ck] %></td>
-            <td align="center"><%= cq - esmtcnt[ck] %></td>
+            <td><%= @dtypes.find(c_dtype).dtype %></td>
+            <td><%= c_qnt %></td>
+
+            <% if esmtcnt[c_dtype] == "-" %>
+              <td><%= link_to esmtcnt[c_dtype], "/itaqntesmts/#{@sel_store_id}/#{c_dtype}/new", class: "col-md-1"  %></td>  
+            <% else %>
+              <td><%= link_to esmtcnt[c_dtype], "/itaqntesmts/#{esmtid[c_dtype]}/edit", class: "col-md-1" %></td>  
+            <% end %>
+
+            <td  ><%= c_qnt - esmtcnt[c_dtype].to_i %></td>
           </tr>
       <% end %> 
       <tr>
         <td> TOTAL </td>
-        <td align="center"><%= total %>
-        <td align="center"><%= esmttot %>
-        <td align="center"><%= total - esmttot %>
+        <td><%= total %>
+        <td><%= esmttot %>
+        <td><%= total - esmttot %>
       </tr>
     
   </tbody>

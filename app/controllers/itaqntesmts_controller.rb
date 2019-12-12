@@ -23,25 +23,28 @@ class ItaqntesmtsController < ApplicationController
   
   # GET /itaqntesmts/1
   # GET /itaqntesmts/1.json
-  def show
+  def show    
   end
 
   # GET /itaqntesmts/new
   def new
     @itaqntesmt = Itaqntesmt.new
     @sel_store_id = params[:store_id]
+    @sel_dtype_id = params[:dtype_id]
     @itaqntesmt.store_id = params[:store_id]
+    @itaqntesmt.dtype_id = params[:dtype_id]
     @dtypes = Dtype.all.order("priority")
   end
 
   # GET /itaqntesmts/1/edit
   def edit
-    @dtypes = Dtype.all
+     @dtypes = Dtype.all
   end
 
   # POST /itaqntesmts
   # POST /itaqntesmts.json
   def create
+    @dtypes = Dtype.all
     @itaqntesmt = Itaqntesmt.new(itaqntesmt_params)
 
     respond_to do |format|
@@ -85,6 +88,7 @@ class ItaqntesmtsController < ApplicationController
       @itaqntesmt = Itaqntesmt.find(params[:id])
     end
 
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def itaqntesmt_params
       params.require(:itaqntesmt).permit(:store_id, :dtype_id, :qntesmt)
