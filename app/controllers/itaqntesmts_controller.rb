@@ -48,13 +48,20 @@ class ItaqntesmtsController < ApplicationController
     @itaqntesmt = Itaqntesmt.new(itaqntesmt_params)
 
     respond_to do |format|
-      if @itaqntesmt.save
-        format.html { redirect_to @itaqntesmt, notice: 'Itaqntesmt was successfully created.' }
-        format.json { render :show, status: :created, location: @itaqntesmt }
-      else
-        format.html { render :new }
-        format.json { render json: @itaqntesmt.errors, status: :unprocessable_entity }
-      end
+      if Itaqntesmt.where(store_id: @itaqntesmt.store_id).where(dtype_id: @itaqntesmt.dtype_id).count > 0 # 19-12-13
+        #format.html { render :new }                                                                       # 19-12-13
+        #format.html { render :new, notice: '!! 이미 등록된 장비타입 입니다.!!!!!!' }                                                        # 19-12-13
+        format.html { redirect_to "/itassets/itaps/#{@itaqntesmt.store_id}", notice: '!! 이미 등록된 장비타입 입니다.***** 이미 등록된 장비타입 입니다.!!!!!!' }                                                                       # 19-12-13
+        format.json { render json: @itaqntesmt.errors, status: :unprocessable_entity }                    # 19-12-13
+      else                                                                                                # 19-12-13
+        if @itaqntesmt.save
+          format.html { redirect_to @itaqntesmt, notice: 'Itaqntesmt was successfully created.' }
+          format.json { render :show, status: :created, location: @itaqntesmt }
+        else
+          format.html { render :new }
+          format.json { render json: @itaqntesmt.errors, status: :unprocessable_entity }
+        end
+      end                                                                                                 # 19-12-13
     end
   end
 

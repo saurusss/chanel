@@ -87,6 +87,7 @@ class ItassetsController < ApplicationController
     @itasset = Itasset.new(itasset_params)
 
     respond_to do |format|
+      
       if @itasset.save
         format.html { redirect_to @itasset, notice: 'Itasset was successfully created.' }
         format.json { render :show, status: :created, location: @itasset }

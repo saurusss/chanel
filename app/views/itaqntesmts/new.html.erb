@@ -1,4 +1,6 @@
-<h1>예상수량 등록 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p id="notice"><%= notice %></p>
+
+<h1>예상수량-등록 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <%= link_to 'Home', '/', class: 'btn btn-default'%></h1>
 
 </br>
@@ -6,3 +8,4 @@
 <%= render 'form', itaqntesmt: @itaqntesmt %>
 
 <%= link_to 'Back', itaqntesmts_path %>
+<%= link_to " | Back to #{@itaqntesmt.store.storename} 자산등록현황", "/itassets/itaps/#{@itaqntesmt.store_id}" %>
