@@ -23,7 +23,7 @@ class ItassetsController < ApplicationController
     if @orderkey == nil
       @orderkey = "store_id"
     end
-    if params[:store_id] == 0 || params[:store_id] == nil
+    if params[:store_id] == "0" || params[:store_id] == nil
       @sel_storename = "ALL"
       @sel_store_id = 0
       @itassets = Itasset.all.order(@orderkey).paginate(page: params[:page], per_page: 10)
