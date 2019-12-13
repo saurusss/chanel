@@ -28,3 +28,4 @@
 
 # Ingore Database parameters
 config/database.yml
+config/secrets.yml
