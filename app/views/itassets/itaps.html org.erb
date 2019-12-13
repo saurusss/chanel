@@ -1,0 +1,90 @@
+</br>
+<p id="notice"><%= notice %></p>
+
+<h1> ② 자산등록현황 - <%= @sel_storename  %> </h1>
+
+<%# if @itassets.count == 0 %>
+
+<div class="well">
+  <p>Registered Asset count : <%= @itassets.count %>  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    estimated Asset count : <%= @itaqntesmts.count%>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%#= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %> 
+    <% if @sel_store_id != 0%>
+      <%= link_to "예상자산등록②", "/itaqntesmts/#{@sel_store_id}/new", class: 'btn btn-default' %> 
+      <%= link_to "자산등록③ ", 
+            "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %> 
+      <%= link_to "자산명세표@", "/itassets/index/#{@sel_store_id}", class: 'btn btn-default'  %> 
+        <%# 예상자산등록 작성 필요함 "/itaqntesmts/:store_id/new"%>
+    <% else %>
+      <%= link_to "자산명세표",itassets_path, class: 'btn btn-default'  %> 
+    <% end %>
+
+    <%= link_to "매장/부서", stores_path, class: 'btn btn-default' %> 
+ 
+    <%= link_to 'Home', '/', class: 'btn btn-default'%> 
+  </p>
+</div>
+<div>***** 예상수량을 수정하려면 숫자를 클릭하십시오 *****</div>
+<table class="table" >
+  <thead class="well">
+    <tr>
+      <th class="col-md-1">Device type</th>
+      <th class="col-md-1">실사 수량</th>
+      <th class="col-md-1">예상 수량</th>
+      <th class="col-md-1">  차이</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% count = {}%>
+      <% total = 0 %>
+      <% esmtcnt = {}%> 
+      <% esmttot = 0 %> 
+      <% esmtid = {}%>
+      <% @dtypes.each   { |d| count[d.id] = 0 ; esmtcnt[d.id] = 0} %>      
+      <% @itassets.each do |i| %>
+          <% dtype = i.dtype_id %>
+          <% count[dtype]  = count[dtype]  + 1 %>
+          <% total = total + 1 %>
+      <% end %> 
+      <% @itaqntesmts.each do |q| %>
+          <% esmtcnt[q.dtype_id] = esmtcnt[q.dtype_id] + q.qntesmt %>
+          <% esmtid[q.dtype_id] = q.id%>
+          <% esmttot = esmttot +  q.qntesmt %>
+      <% end %>
+
+      <% esmtcnt.each  { | edtype, eqnt | esmtcnt[edtype] = "-"  if eqnt == 0 } %>
+
+
+      <% count.each do | c_dtype, c_qnt | %>
+          <tr>
+            <td><%= @dtypes.find(c_dtype).dtype %></td>
+            <td><%= c_qnt %></td>
+
+            <% if esmtcnt[c_dtype] == "-" %>
+              <td><%= link_to esmtcnt[c_dtype], "/itaqntesmts/#{@sel_store_id}/#{c_dtype}/new", class: "col-md-1"  %></td>  
+            <% else %>
+              <td><%= link_to esmtcnt[c_dtype], "/itaqntesmts/#{esmtid[c_dtype]}/edit", class: "col-md-1" %></td>  
+            <% end %>
+
+            <td  ><%= c_qnt - esmtcnt[c_dtype].to_i %></td>
+          </tr>
+      <% end %> 
+      <tr>
+        <td> TOTAL </td>
+        <td><%= total %></td>
+        <td><%= esmttot %></td>
+        <td><%= total - esmttot %></td>
+      </tr>
+    
+  </tbody>
+</table>
+
+<%= link_to '자산명세표-전체', itassets_path %>   
+<% if  @sel_storename != "ALL" && @itassets.count != 0 %>
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+    <%= link_to 'Back to ' + @sel_storename  + ' 명세표', "/itassets/index/#{@itassets.first.store_id} " %>
+<% end %>
