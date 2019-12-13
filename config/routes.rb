@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :isps
   resources :itaqntesmts
  # get    '/' => 'home#index'
   get    '/' => 'home#index_chanel'

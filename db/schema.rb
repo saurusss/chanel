@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_07_030345) do
+ActiveRecord::Schema.define(version: 2019_12_13_092633) do
 
   create_table "assetlists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mgmtno"
@@ -96,6 +96,21 @@ ActiveRecord::Schema.define(version: 2019_12_07_030345) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "isps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "store_id"
+    t.string "telcom"
+    t.string "lineinfo"
+    t.date "date_open"
+    t.string "term"
+    t.string "bandwidth"
+    t.string "purpose"
+    t.string "placetoinstall"
+    t.text "remarks"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_isps_on_store_id"
+  end
+
   create_table "itaqntesmts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "store_id"
     t.bigint "dtype_id"
@@ -173,6 +188,7 @@ ActiveRecord::Schema.define(version: 2019_12_07_030345) do
   add_foreign_key "assetlists", "stores"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "isps", "stores"
   add_foreign_key "itaqntesmts", "dtypes"
   add_foreign_key "itaqntesmts", "stores"
   add_foreign_key "itassets", "dtypes"

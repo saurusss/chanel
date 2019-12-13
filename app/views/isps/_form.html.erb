@@ -1,0 +1,73 @@
+<%= form_with(model: isp, local: true) do |form| %>
+  <% if isp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(isp.errors.count, "error") %> prohibited this isp from being saved:</h2>
+
+      <ul>
+      <% isp.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul> 
+    </div>
+  <% end %>
+
+  <table>
+     
+    <% if @isp.store_id == 0 || @isp.store_id == nil %>
+        <tr class="field">
+          <td><%= form.label :store_id %></td>
+          <td><%= form.text_field :store_id %></td>
+        </tr>
+    <% else %>
+        <tr class="field">
+          <td><%= form.label :store_id %></td>
+          <td><%= isp.store.storename%></td>
+          <td><%= form.hidden_field :store_id %></td>
+        </tr>
+    <% end %>
+
+    <tr class="field">
+      <td><%= form.label :telcom %></td>
+      <td><%= form.text_field :telcom %></td>
+    </tr>
+
+    <tr class="field">
+      <td><%= form.label :lineinfo %></td>
+      <td><%= form.text_field :lineinfo %></td>
+    </tr>
+
+    <tr class="field">
+      <td><%= form.label :date_open %></td>
+      <td><%= form.date_select :date_open %></td>
+    </tr>
+
+    <tr class="field">
+      <td><%= form.label :term %></td>
+      <td><%= form.text_field :term %></td>
+    </tr>
+
+    <tr class="field">
+      <td><%= form.label :bandwidth %></td>
+      <td><%= form.text_field :bandwidth %></td>
+    </tr>
+
+    <tr class="field">
+      <td><%= form.label :purpose %></td>
+      <td><%= form.text_field :purpose %></td>
+    </tr>
+
+    <tr class="field">
+      <td><%= form.label :placetoinstall %></td>
+      <td><%= form.text_field :placetoinstall %></td>
+    </tr>
+
+    <tr class="field">
+      <td><%= form.label :remarks %></td>
+      <td><%= form.text_area :remarks %></td>
+    </tr>
+
+    <tr class="actions">
+      <td><%= form.submit %></td>
+    </tr>
+  </table>
+<% end %>

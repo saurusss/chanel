@@ -3,4 +3,5 @@ class Store < ApplicationRecord
     has_many    :itassets
     has_many    :dtypes, through:   :itassets
     has_many    :itaqntesmts
+    has_many    :isps
 end

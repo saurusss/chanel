@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store: one
+  telcom: MyString
+  lineinfo: MyString
+  date_open: 2019-12-13
+  term: MyString
+  bandwidth: MyString
+  purpose: MyString
+  placetoinstall: 
+  remarks: MyText
+
+two:
+  store: two
+  telcom: MyString
+  lineinfo: MyString
+  date_open: 2019-12-13
+  term: MyString
+  bandwidth: MyString
+  purpose: MyString
+  placetoinstall: 
+  remarks: MyText

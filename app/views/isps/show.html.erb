@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @isp.store.storename %>
+</p>
+
+<p>
+  <strong>Telcom:</strong>
+  <%= @isp.telcom %>
+</p>
+
+<p>
+  <strong>Lineinfo:</strong>
+  <%= @isp.lineinfo %>
+</p>
+
+<p>
+  <strong>Date open:</strong>
+  <%= @isp.date_open %>
+</p>
+
+<p>
+  <strong>Term:</strong>
+  <%= @isp.term %>
+</p>
+
+<p>
+  <strong>Bandwidth:</strong>
+  <%= @isp.bandwidth %>
+</p>
+
+<p>
+  <strong>Purpose:</strong>
+  <%= @isp.purpose %>
+</p>
+
+<p>
+  <strong>Placetoinstall:</strong>
+  <%= @isp.placetoinstall %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @isp.remarks %>
+</p>
+
+<%= link_to 'Edit', edit_isp_path(@isp) %> |
+<%= link_to 'Back', isps_path %>
