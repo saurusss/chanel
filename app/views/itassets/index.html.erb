@@ -10,15 +10,15 @@
         매장명 : <%= @sel_storename%>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-        <% if @sel_store_id != 0%>
-          <%= link_to '자산등록@', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %>
-          <%= link_to "자산등록현황@", "/itassets/itaps/#{@sel_store_id}",
-                   class: 'btn btn-default'  %>        
-          <%= link_to "예상수량등록@", "/itaqntesmts/#{@sel_store_id}/new", class: 'btn btn-default' %>   
+        <% if @sel_store_id != 0 %>
+            <%= link_to '자산등록@', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %>
+            <%= link_to "자산등록현황@", "/itassets/itaps/#{@sel_store_id}",
+                    class: 'btn btn-default'  %>        
+            <%= link_to "예상수량등록@", "/itaqntesmts/#{@sel_store_id}/new", class: 'btn btn-default' %>   
         <%else%>
-          <%= link_to "자산등록현황", "/itassets/itaps/#{@sel_store_id}",
-                   class: 'btn btn-default'  %>     
-          <%= link_to "예상수량", itaqntesmts_path, class: 'btn btn-default' %>   
+            <%= link_to "자산등록현황", "/itassets/itaps/#{@sel_store_id}",
+                    class: 'btn btn-default'  %>     
+            <%= link_to "예상수량", itaqntesmts_path, class: 'btn btn-default' %>   
         <%end%>
 
         <%= link_to "매장/부서", stores_path, class: 'btn btn-default' %> 
@@ -92,9 +92,8 @@
   </table>
 
 <%else%>
-
-  <% message = "There is no asset registered in the selected store
-      : #{@sel_storename} (click here to return)" %>
+  <% message = "There is no asset registered in the selected store 
+      : #{@sel_storename} (click here to return) " %>
   <%= link_to message, stores_path %>
 
 <%end%>
@@ -102,4 +101,6 @@
 <%= will_paginate @itassets, renderer: BootstrapPagination::Rails,  previous_label: "Previous", next_label: "Newer", inner_window: 1, outer_windows: 0 %>
 </br>
 </br>
-<%= link_to '자산등록@', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %>
+<% if @sel_store_id != 0 %>
+  <%= link_to '자산등록@', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %>
+<% end %>
