@@ -99,7 +99,7 @@
 
 <%= will_paginate @itassets, renderer: BootstrapPagination::Rails,  previous_label: "Previous", next_label: "Newer", inner_window: 1, outer_windows: 0 %>
 
-
+</br>
 <% if @sel_store_id != 0 %>
   <%= link_to '자산등록③', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default btn-sm' %>
 <% end %>
