@@ -3,27 +3,27 @@
 <h1>자산명세표 - <%= @sel_storename %></h1>
 <% if @itassets.count > 0 %>
   <div class="well">
-      <p>Registered Asset count : <%= @itassets.count %>  
+      <p>Registered Asset count : <%= @itassets.count %>대  
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-        order by : <%= @orderkey %>
+        order by : "<%= @orderkey %>"
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         매장명 : <%= @sel_storename%>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <% if @sel_store_id != 0 %>
-            <%= link_to "예상수량등록②", "/itaqntesmts/#{@sel_store_id}/new", class: 'btn btn-default'%>   
-            <%= link_to '자산등록③', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %>
-            <%= link_to "자산등록현황@", "/itassets/itaps/#{@sel_store_id}",  class: 'btn btn-default'%>        
+            <%= link_to "예상수량등록②", "/itaqntesmts/#{@sel_store_id}/new", class: 'btn btn-default btn-sm btn-sm'%>   
+            <%= link_to '자산등록③', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default btn-sm' %>
+            <%= link_to "자산등록현황@", "/itassets/itaps/#{@sel_store_id}",  class: 'btn btn-default btn-sm'%>        
         <%else%>
-            <%= link_to "자산등록현황", "/itassets/itaps/#{@sel_store_id}", class: 'btn btn-default' %>     
-            <%= link_to "예상수량", itaqntesmts_path, class: 'btn btn-default' %>   
+            <%= link_to "자산등록현황", "/itassets/itaps/#{@sel_store_id}", class: 'btn btn-default btn-sm' %>     
+            <%= link_to "예상수량", itaqntesmts_path, class: 'btn btn-default btn-sm' %>   
         <%end%>
 
-        <%= link_to "매장/부서", stores_path, class: 'btn btn-default' %> 
-        <%= link_to 'Home', '/', class: 'btn btn-default'%> 
+        <%= link_to "매장/부서", stores_path, class: 'btn btn-default btn-sm' %> 
+        <%= link_to 'Home', '/', class: 'btn btn-default btn-sm'%> 
       </p>
   </div>
-  <h3>***** 매장별 자산등록 현황을 조회하려면 "StoreName"을 클릭하여 주십시오. ***** </h3>
+  <p>*** 매장별 자산등록 현황 조회 :  <span class="bg-primary text-white">"매장명" 클릭</span> *** </p>
   <table class="table">
     <thead class="well">
       <tr>

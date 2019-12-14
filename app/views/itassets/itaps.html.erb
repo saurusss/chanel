@@ -6,9 +6,9 @@
 <%# if @itassets.count == 0 %>
 
 <div class="well">
-  <p>Registered Asset count : <%= @itassets.count %>  
+  <p>Registered Asset count : <%= @itassets.count %>대 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    estimated Asset count : <%= @itaqntesmts.count%>
+    예상수량등록장비 : <%= @itaqntesmts.count%>가지
     </br>
     </br>
     <%#= link_to '자산등록', new_itasset_path, class: 'btn btn-default  btn-sm' %> 
@@ -28,11 +28,11 @@
   </p>
 </div>
 
-<p><span class="bg-primary text-white">*** 예상수량을 수정하려면 숫자 또는 상단의 "예상자산등록②" 클릭 ***</span></p>
+<p><span class="bg-primary text-white">*** 예상수량 수정 : 숫자 또는 상단의 "예상자산등록②" 클릭 ***</span></p>
 
 
 <div class="row well" >
-      <div class="col-md-1">Device type</div>
+      <div class="col-md-2">Device type</div>
       <div class="col-md-1" align="center">실사 수량</div>
       <div class="col-md-1" align="center">예상 수량</div>
       <div class="col-md-1" align="center">차이</div>
@@ -60,7 +60,7 @@
 
 <% count.each do | c_dtype, c_qnt | %>
     <div class="row">
-        <div class="col-md-1"><%= @dtypes.find(c_dtype).dtype %></div>
+        <div class="col-md-2"><%= @dtypes.find(c_dtype).dtype %></div>
         <div class="col-md-1" align="center"><%= c_qnt %></div>
 
         <% if esmtcnt[c_dtype] == "-" %>
@@ -74,7 +74,7 @@
 <% end %> 
 </br>
 <div class="row well">
-  <div class="col-md-1"> TOTAL </div>
+  <div class="col-md-2"> TOTAL </div>
   <div class="col-md-1" align="center"><%= total %> </div>
   <div class="col-md-1" align="center"><%= esmttot %></div>
   <div class="col-md-1" align="center"><%= total - esmttot %></div>
