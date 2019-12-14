@@ -5,11 +5,13 @@ class ItassetsController < ApplicationController
     if params[:store_id]  == "0" || params[:store_id]  == nil
       @itassets = Itasset.all
       @itaqntesmts = Itaqntesmt.all
+      @isps = Isp.all
       @sel_storename = "ALL"
       @sel_store_id = 0
     else
       @itassets = Itasset.where(store_id: params[:store_id])
       @itaqntesmts = Itaqntesmt.where(store_id: params[:store_id])
+      @isps = Isp.where(store_id: params[:store_id])
       @sel_storename = Store.find(params[:store_id]).storename
       @sel_store_id = params[:store_id]
     end
@@ -34,9 +36,7 @@ class ItassetsController < ApplicationController
                   paginate(page: params[:page], per_page: 10)
     end
     #@itassets = Itasset.all
-    #@itassets = Itasset.all.order(@orderkey).paginate(page: params[:page], per_page: 10)
-
-  
+    #@itassets = Itasset.all.order(@orderkey).paginate(page: params[:page], per_page: 10)  
   end
 
   def search

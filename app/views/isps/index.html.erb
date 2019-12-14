@@ -7,16 +7,20 @@
        
     <% if @sel_store_id != nil%>
       Selected store : <%= @sel_storename%> &nbsp;&nbsp;&nbsp;
-      <%= link_to 'Isp정보신규등록', "/isps/#{@sel_store_id}/new", class: 'btn btn-default btn-sm' %>
+      <%= link_to 'Isp정보신규등록@', "/isps/#{@sel_store_id}/new", class: 'btn btn-default btn-sm' %>
+      <%= link_to "자산명세표@", "/itassets/index/#{@sel_store_id}", class: 'btn btn-default btn-sm'  %> 
+      <%= link_to "자산등록현황@", "/itassets/itaps/#{@sel_store_id}", class: 'btn btn-default  btn-sm'  %>     
+    <% else %>
+      <%= link_to "자산명세표", itassets_path, class: 'btn btn-default btn-sm'  %> 
+      <%= link_to "자산등록현황", "/itassets/itaps/0", class: 'btn btn-default  btn-sm'  %>     
     <% end %>
     <%= link_to "매장/부서", stores_path, class: 'btn btn-default btn-sm' %>
-    <%= link_to "매장/부서", stores_path, class: 'btn btn-default btn-sm' %>
-    <%= link_to "자산명세표",itassets_path, class: 'btn btn-default btn-sm'  %> 
-    <%= link_to "자산등록현황", "/itassets/itaps/0", class: 'btn btn-default  btn-sm'  %>     
     <%= link_to 'Home', '/', class: 'btn btn-default  btn-sm'%> 
+
 </div>
 
 <p><span class="bg-primary text-white">*** 회선정보 신규 등록 : Store 선택시 신규입력 가능 *** </span></p>
+<p><span class="bg-primary text-white">*** 선택할 Store가 없으면 "매장/부서"클릭하고 Store를 선택하여 입력함 *** </span></p>
 
 <table>
   <thead>
