@@ -10,8 +10,12 @@ Rails.application.routes.draw do
   delete '/posts/:post_id/comments/:id' =>"comments#destroy"
   post   '/posts/:post_id/comments/:id' => 'comments#update'
 
+  get   '/isps/:store_id/index' => 'isps#index'
+  get   '/isps/:store_id/new'   => 'isps#new'
+
   #get '/stores/search '=> 'stores#search'
   post   '/stores/search'=> 'stores#search'
+  get     '/stores/index/storename' => 'stores#index'
   get    '/stores/itaallstore', to: 'stores#itaallstore'
 
   #get    '/itassets/search/:store_id' => 'itassets#search' # 19-12-11
@@ -20,7 +24,7 @@ Rails.application.routes.draw do
   get    '/itassets/new/:store_id' => 'itassets#new'
   get    '/itassets/index/:orderkey'  => 'itassets#index'
   #get    '/itassets/search/:store_id/:orderkey' => 'itassets#search' #19-12-11
-  get    '/itassets/index/:store_id/:orderkey' => 'itassets#index'  #19-12-11
+  get    '/itassets/index/:store_id/:orderkey' => 'itassets#index'    #19-12-11
   #get    '/itassets/itapsall' => 'itassets#itapsall'
   get    '/itassets/itaps/:store_id' => 'itassets#itaps'
 

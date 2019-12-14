@@ -14,7 +14,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <%#= link_to '자산등록', new_itasset_path, class: 'btn btn-default' %> 
     <% if @sel_store_id != 0%>
-      <%= link_to "예상자산등록②", "/itaqntesmts/#{@sel_store_id}/new", class: 'btn btn-default' %> 
+      <%= link_to "예상수량등록②", "/itaqntesmts/#{@sel_store_id}/new", class: 'btn btn-default' %> 
       <%= link_to "자산등록③ ", 
             "/itassets/new/#{@sel_store_id}", class: 'btn btn-default' %> 
       <%= link_to "자산명세표@", "/itassets/index/#{@sel_store_id}", class: 'btn btn-default'  %> 

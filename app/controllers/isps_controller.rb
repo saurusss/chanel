@@ -4,7 +4,15 @@ class IspsController < ApplicationController
   # GET /isps
   # GET /isps.json
   def index
-    @isps = Isp.all
+    if params[:store_id] == nil
+      @sel_storename = "ALL"
+      @isps = Isp.all.order("store_id")
+    else
+      @sel_store_id = params[:store_id] 
+      @sel_storename = Store.find(@sel_store_id).storename
+      @isps = Isp.where(store_id: params[:store_id]).order("store_id")
+      @Dtypes = Store.all
+    end
   end
 
   # GET /isps/1
@@ -15,6 +23,7 @@ class IspsController < ApplicationController
   # GET /isps/new
   def new
     @isp = Isp.new
+    @isp.store_id = params[:store_id]
   end
 
   # GET /isps/1/edit
