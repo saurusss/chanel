@@ -87,13 +87,18 @@ class ItassetsController < ApplicationController
     @itasset = Itasset.new(itasset_params)
 
     respond_to do |format|
-      
-      if @itasset.save
-        format.html { redirect_to @itasset, notice: 'Itasset was successfully created.' }
-        format.json { render :show, status: :created, location: @itasset }
-      else
-        format.html { render :new }
+      if Itasset.where(mgmtno: @itasset.mgmtno).exists?
+        #format.html { render :new }
+        format.html { redirect_to "/itassets/index/#{@itasset.store_id}", notice: '!!!이미사용한 관리번호입니다. !!!' }
         format.json { render json: @itasset.errors, status: :unprocessable_entity }
+      else
+        if @itasset.save
+          format.html { redirect_to @itasset, notice: 'Itasset was successfully created.' }
+          format.json { render :show, status: :created, location: @itasset }
+        else
+          format.html { render :new }
+          format.json { render json: @itasset.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

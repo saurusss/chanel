@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h3 id="notice"><%= notice %></h3>
 
 <h1>자산명세표 - <%= @sel_storename %></h1>
 
@@ -98,8 +98,8 @@
 <%end%>
 
 <%= will_paginate @itassets, renderer: BootstrapPagination::Rails,  previous_label: "Previous", next_label: "Newer", inner_window: 1, outer_windows: 0 %>
-</br>
-</br>
+
+
 <% if @sel_store_id != 0 %>
   <%= link_to '자산등록③', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default btn-sm' %>
 <% end %>
