@@ -72,13 +72,13 @@
         <div class="col-md-1" align="center"><%= c_qnt - esmtcnt[c_dtype].to_i %></div>
       </div>
 <% end %> 
-<div class="row">
+<div class="row well well-sm">
   <div class="col-md-2"> TOTAL </div>
   <div class="col-md-1" align="center"><%= total %> </div>
   <div class="col-md-1" align="center"><%= esmttot %></div>
   <div class="col-md-1" align="center"><%= total - esmttot %></div>
 </div>
-<div class="row well well-sm">
+<div class="row well well-md">
   <div class="col-md-2">사용회선 </div>
   <div class="col-md-1" align="center"><%= @isps.count %> </div>
   <div class="col-md-1" align="center">N/A</div>
