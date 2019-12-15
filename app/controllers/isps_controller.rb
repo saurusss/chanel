@@ -1,4 +1,5 @@
 class IspsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_isp, only: [:show, :edit, :update, :destroy]
 
   # GET /isps

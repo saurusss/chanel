@@ -1,4 +1,5 @@
 class DtypesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_dtype, only: [:show, :edit, :update, :destroy]
 
   # GET /dtypes
