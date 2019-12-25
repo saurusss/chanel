@@ -12,6 +12,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
         <% if @sel_store_id != 0 %>
+            </br>
+            </br>
             <%= link_to '자산등록③', "/itassets/new/#{@sel_store_id}", class: 'btn btn-default btn-sm' %>
             <%= link_to "자산등록현황@", "/itassets/itaps/#{@sel_store_id}",  class: 'btn btn-default btn-sm'%>        
             <%= link_to "예상수량등록②", "/itaqntesmts/#{@sel_store_id}/new", class: 'btn btn-default btn-sm btn-sm'%>   
