@@ -22,6 +22,7 @@ class ItassetsController < ApplicationController
   # GET /itassets
   # GET /itassets.json
   def index
+    @dtypes = Dtype.all
     @orderkey = params[:orderkey]
     if @orderkey == nil
       @orderkey = "store_id"
@@ -58,6 +59,7 @@ class ItassetsController < ApplicationController
   # GET /itassets/1
   # GET /itassets/1.json
   def show
+    @dtypes = Dtype.all
   end
 
   # GET /itassets/new
@@ -101,6 +103,7 @@ class ItassetsController < ApplicationController
   # PATCH/PUT /itassets/1
   # PATCH/PUT /itassets/1.json
   def update
+    @dtypes = Dtype.all
     respond_to do |format|
       if @itasset.update(itasset_params)
         format.html { redirect_to @itasset, notice: 'Itasset was successfully updated.' }
