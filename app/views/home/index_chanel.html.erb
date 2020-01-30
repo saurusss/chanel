@@ -4,7 +4,7 @@
     <% if user_signed_in? %>
         <p><%= current_user.email %>님 환영합니다.</p>
         </br></br>
-        <h2> <%= link_to "① 매장/부서", stores_path, class: 'btn btn-default btn-lg' %> 
+        <h2> <%= link_to "① 매장/부서", stores_path, class: 'btn btn-default btn-lg' %>  
             <%= link_to "IT자산 관리 ", itassets_path, class: 'btn btn-default btn-lg' %> 
             <%= link_to "ISP 관리 ", isps_path, class: 'btn btn-default btn-lg' %>  </h2>
         </br>

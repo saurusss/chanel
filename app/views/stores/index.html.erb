@@ -49,9 +49,9 @@
         <td><%= store.storecode %></td>
         <td><%= store.store_ab %></td>
         <td><%= link_to store.storename, "/itassets/itaps/#{store.id}" %> </td-->
-        <td><%= link_to "수량", "/itassets/itaps/#{store.id}"%></td>
-        <td><%= link_to "자산",  "/itassets/index/#{store.id}"%></td>
-        <td><%= link_to "회선",  "/isps/#{store.id}/index"%></td>
+        <td><%= link_to "수량", "/itassets/itaps/#{store.id}" , class: 'btn btn-default btn-sm'%></td>
+        <td><%= link_to "자산",  "/itassets/index/#{store.id}", class: 'btn btn-default btn-sm'%></td>
+        <td><%= link_to "회선",  "/isps/#{store.id}/index", class: 'btn btn-default btn-sm'%></td>
         <td><%= store.extension %></td>
         <td><%= store.address %></td>
         <td><%= store.telno %></td>
