@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_092633) do
+ActiveRecord::Schema.define(version: 2020_11_19_101414) do
 
   create_table "assetlists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mgmtno"
@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2019_12_13_092633) do
     t.string "username"
     t.string "devicetype"
     t.string "purpose"
-    t.string "manufacture"
+    t.string "manufacturer"
     t.string "modelno"
     t.string "serialno"
-    t.string "cpu"
+    t.string "spec"
     t.string "ramsize"
     t.string "disksize"
     t.string "os"
@@ -36,7 +36,12 @@ ActiveRecord::Schema.define(version: 2019_12_13_092633) do
     t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "placetouse"
+    t.string "location"
+    t.string "adac"
+    t.string "postno"
+    t.string "ispcompany"
+    t.string "ispmgmtno"
+    t.string "size"
     t.index ["store_id"], name: "index_assetlists_on_store_id"
   end
 
