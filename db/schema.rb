@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_19_101414) do
+ActiveRecord::Schema.define(version: 2020_11_20_015527) do
 
   create_table "assetlists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mgmtno"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_101414) do
     t.string "postno"
     t.string "ispcompany"
     t.string "ispmgmtno"
-    t.string "size"
+    t.string "dimension"
     t.index ["store_id"], name: "index_assetlists_on_store_id"
   end
 
@@ -130,13 +130,13 @@ ActiveRecord::Schema.define(version: 2020_11_19_101414) do
     t.string "mgmtno"
     t.bigint "store_id"
     t.string "username"
-    t.string "placetouse"
+    t.string "location"
     t.string "devicetype"
     t.string "purpose"
-    t.string "manufacture"
+    t.string "manufacturer"
     t.string "modelno"
     t.string "serialno"
-    t.string "cpuspeed"
+    t.string "spec"
     t.string "ramsize"
     t.string "disksize"
     t.string "os"
@@ -152,6 +152,11 @@ ActiveRecord::Schema.define(version: 2020_11_19_101414) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "dtype_id"
+    t.string "adac"
+    t.string "postno"
+    t.string "ispcompany"
+    t.string "ispmgmtno"
+    t.string "dimension"
     t.index ["dtype_id"], name: "index_itassets_on_dtype_id"
     t.index ["store_id"], name: "index_itassets_on_store_id"
   end
@@ -176,6 +181,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_101414) do
     t.string "telno"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

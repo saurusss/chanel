@@ -7,6 +7,6 @@ class UpdateFieldsAssetlists < ActiveRecord::Migration[5.2]
     rename_column :assetlists, :cpu, :spec
     add_column :assetlists, :ispcompany, :string
     add_column :assetlists, :ispmgmtno, :string
-    add_column :assetlists, :size, :string
+    add_column :assetlists, :dimension, :string
   end
 end

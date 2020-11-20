@@ -38,8 +38,8 @@
       </tr>
 
       <tr class="field">
-        <td><%= form.label :placetouse %></td>
-        <td><%= form.text_field :placetouse %></td>
+        <td><%= form.label :location %></td>
+        <td><%= form.text_field :location %></td>
       </tr>
 
       <tr class="field">
@@ -47,8 +47,7 @@
         <% s_dtype = {} %>
         <% @dtypes.each { |d| s_dtype[d.dtype] = d.id } %> 
         
-        <!--td><%= form.text_field :dtype_id %></td-->
-        <!--td><%= itasset.dtype.dtype %></td-->
+
         <td><%= form.select :dtype_id, s_dtype %></td>
       </tr>
 
@@ -63,8 +62,23 @@
       </tr>
 
       <tr class="field">
-        <td><%= form.label :manufacture %></td>
-        <td><%= form.text_field :manufacture %></td>
+        <td><%= form.label :adac %></td>
+        <td><%= form.text_field :adac %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :postno %></td>
+        <td><%= form.text_field :postno %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :ispcompany %></td>
+        <td><%= form.text_field :ispmgmtno %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :manufacturer %></td>
+        <td><%= form.text_field :manufacturer %></td>
       </tr>
 
       <tr class="field">
@@ -78,8 +92,13 @@
       </tr>
 
       <tr class="field">
-        <td><%= form.label :cpuspeed %></td>
-        <td><%= form.text_field :cpuspeed %></td>
+        <td><%= form.label :date_produce %></td>
+        <td><%= form.date_select :date_produce %></td>
+      </tr>
+
+      <tr class="field">
+        <td><%= form.label :spec %></td>
+        <td><%= form.text_field :spec %></td>
       </tr>
 
       <tr class="field">
@@ -128,11 +147,6 @@
       </tr>
 
       <tr class="field">
-        <td><%= form.label :date_produce %></td>
-        <td><%= form.date_select :date_produce %></td>
-      </tr>
-
-      <tr class="field">
         <td><%= form.label :amtpurchase %></td>
         <td><%= form.number_field :amtpurchase %></td>
       </tr>
@@ -142,6 +156,10 @@
         <td><%= form.text_area :remarks %></td>
       </tr>
 
+      <tr class="field">
+        <td><%= form.label :dimension %></td>
+        <td><%= form.text_area :dimension %></td>
+      </tr>
       <tr class="actions">
         <td><%= form.submit %></td>
       </tr>
