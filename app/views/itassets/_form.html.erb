@@ -142,6 +142,11 @@
       </tr>
 
       <tr class="field">
+        <td><%= form.label :dimension %></td>
+        <td><%= form.text_area :dimension %></td>
+      </tr>
+
+      <tr class="field">
         <td><%= form.label :date_purchase %></td>
         <td><%= form.date_select :date_purchase %></td>
       </tr>
@@ -156,10 +161,6 @@
         <td><%= form.text_area :remarks %></td>
       </tr>
 
-      <tr class="field">
-        <td><%= form.label :dimension %></td>
-        <td><%= form.text_area :dimension %></td>
-      </tr>
       <tr class="actions">
         <td><%= form.submit %></td>
       </tr>

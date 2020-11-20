@@ -35,14 +35,16 @@
         <th><%= link_to "Mgmtno",       "/itassets/index/#{@sel_store_id}/mgmtno",class: "col-md-2"%></th>
         <th><%= link_to "StoreName",       "/itassets/index/#{@sel_store_id}/store_id", class: "col-md-5" %></th>
         <th><%= link_to "Username",     "/itassets/index/#{@sel_store_id}/username", class: "col-md-1"%></th>
-        <th><%= link_to "Place to use", "/itassets/index/#{@sel_store_id}/placetouse", class: "col-md-1"%></th>
+        <th><%= link_to "Location", "/itassets/index/#{@sel_store_id}/location", class: "col-md-1"%></th>
         <th><%= link_to "Dtype",        "/itassets/index/#{@sel_store_id}/dtype_id", class: "col-md-1"%></th>
         <th><%= link_to "Device type",  "/itassets/index/#{@sel_store_id}/devicetype", class: "col-md-1"%></th>
         <th class="col-md-1">Purpose</th>
-        <th><%= link_to "Manufacture",  "/itassets/index/#{@sel_store_id}/manufacture", class: "col-md-1"%></th>
+        <th class="col-md-1">POS Till #</th>
+        <th><%= link_to "Manufacturer",  "/itassets/index/#{@sel_store_id}/manufacturer", class: "col-md-1"%></th>
         <th><%= link_to "Modelno",      "/itassets/index/#{@sel_store_id}/modelno", class: "col-md-1" %></th>
         <th class="col-md-1">Serialno</th>
-        <th class="col-md-1">Cpu speed</th>
+        <th class="col-md-2">DateProduce</th>        
+        <th class="col-md-1">Specification</th>
         <th class="col-md-1">Ram size</th>
         <th class="col-md-1">Disk size</th>
         <th><%= link_to "Os",            "/itassets/index/#{@sel_store_id}/os", class: "col-md-1"%></th>
@@ -51,8 +53,8 @@
         <th class="col-md-1">Gwaddr</th>
         <th class="col-md-1">Macwire</th>
         <th class="col-md-1">Macwireless</th>
+        <th class="col-md-2">Dmension</th>
         <th class="col-md-2">DatePurchase</th>
-        <th class="col-md-2">DateProduce</th>
         <th class="col-md-1">Amt purchase</th>
         <th class="col-md-1">Remarks</th>
       </tr>
@@ -67,14 +69,16 @@
           <td><%= itasset.mgmtno %></td>
           <td><%= link_to itasset.store.storename, "/itassets/index/#{itasset.store_id}" %></td>
           <td><%= itasset.username %></td>
-          <td><%= itasset.placetouse %></td>
+          <td><%= itasset.location %></td>
           <td><%= itasset.dtype.dtype %></td>
           <td><%= itasset.devicetype %></td>
           <td><%= itasset.purpose %></td>
-          <td><%= itasset.manufacture %></td>
+          <td><%= itasset.postno %></td>
+          <td><%= itasset.manufacturer %></td>
           <td><%= itasset.modelno %></td>
           <td><%= itasset.serialno %></td>
-          <td><%= itasset.cpuspeed %></td>
+          <td><%= itasset.date_produce %></td>          
+          <td><%= itasset.spec %></td>
           <td><%= itasset.ramsize %></td>
           <td><%= itasset.disksize %></td>
           <td><%= itasset.os %></td>
@@ -83,10 +87,10 @@
           <td><%= itasset.gwaddr %></td>
           <td><%= itasset.macwire %></td>
           <td><%= itasset.macwireless %></td>
+          <td><%= itasset.dimension %></td>
           <td><%= itasset.date_purchase %></td>
-          <td><%= itasset.date_produce %></td>
           <td align="right"><%= ActiveSupport::NumberHelper.number_to_delimited(itasset.amtpurchase) %></td>
-          <td><%= itasset.remarks %></td>
+          <td><%= itasset.remarks %></td>          
         </tr>
       <% end %>
     </tbody>
